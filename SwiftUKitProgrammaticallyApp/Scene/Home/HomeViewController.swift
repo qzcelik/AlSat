@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     let profilButton : UIButton = {
         
         let profile = UIButton()
-        profile.backgroundColor = .red
-        profile.setTitle("P", for:[])
+        profile.setImage(UIImage(systemName: "person"), for: [])
+        profile.tintColor = .black
         profile.layer.cornerRadius = 5
         profile.layer.borderWidth = 1
         return profile
@@ -43,31 +43,32 @@ class HomeViewController: UIViewController {
     let notificationButton : UIButton = {
        
         let button = UIButton()
-        button.setTitle("N", for: [])
-        button.backgroundColor = .black
+        button.setImage(UIImage(systemName: "basket" ), for: [])
+        button.tintColor = .black
+        
         return button
     }()  
     
     let notificationButton2 : UIButton = {
         
         let button = UIButton()
-        button.setTitle("B", for: [])
-        button.backgroundColor = .red
+        button.setImage(UIImage(systemName: "bell" ), for: [])
+        button.tintColor = .black
         return button
     }()
     
     let notificationButton3 : UIButton = {
         
         let button = UIButton()
-        button.setTitle("C", for: [])
-        button.backgroundColor = .orange
+        button.setImage(UIImage(systemName: "star" ), for: [])
+        button.tintColor = .black
         return button
     }()
     
     let topView : UIView = {
        
         let view = UIView()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         return view
     }()  
     
@@ -82,7 +83,6 @@ class HomeViewController: UIViewController {
     let topIconsView : UIView = {
       
         let view = UIView()
-        view.backgroundColor = .green
         return view
         
     }()
@@ -91,14 +91,15 @@ class HomeViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 7
+        view.layer.borderWidth  = 1
         return view
     }()
     
     let searchButton : UIButton = {
        
         let button = UIButton()
-        button.setTitle("S", for: [])
-        button.backgroundColor = .blue
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: [])
+        button.tintColor = .black
         return button
         
     }()
@@ -110,13 +111,24 @@ class HomeViewController: UIViewController {
         return inputField
     }()
     
-    var newsView: UIView = NewsView().view
+    let containerProductView : UIView = {
+       
+        let containerView = UIView()
+        return containerView
+        
+    }()
+    
+    let containerProductTableView : UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    //var newsView: UIView = NewsView().view
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "home"
-        view.backgroundColor = .orange
-        
+        view.backgroundColor = .white
+        title = "Ana Sayfa"
         topViewInfo.addSubview(profilButton)
         topViewInfo.addSubview(messageLabel)
         topViewInfo.addSubview(userNameLabel)
@@ -134,7 +146,23 @@ class HomeViewController: UIViewController {
         view.addSubview(topView)
         view.addSubview(searchView)
         
-        view.addSubview(newsView)
+        //view.addSubview(newsView)
+        view.addSubview(containerProductView)
+        view.addSubview(containerProductTableView)
+        
+        let productView = ProductVerticalViewController()
+        productView.willMove(toParent: self)
+        containerProductView.addSubview(productView.view)
+        productView.view.frame = containerProductView.bounds
+        addChild(productView)
+        productView.didMove(toParent: self)
+        
+        let productTableView = ProductTableView()
+        productTableView.willMove(toParent: self)
+        containerProductTableView.addSubview(productTableView.view)
+        productTableView.view.frame = containerProductTableView.bounds
+        addChild(productTableView)
+        productTableView.didMove(toParent: self)
         
         addConstrait()
         
@@ -142,6 +170,18 @@ class HomeViewController: UIViewController {
     
     func addConstrait()
     {
+        
+        containerProductTableView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(400)
+            make.topMargin.equalTo(containerProductView).offset(150)
+        }
+        
+        containerProductView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(100)
+            make.topMargin.equalTo(searchView).offset(100)
+        }
         
         profilButton.snp.makeConstraints { make in
             make.height.width.equalTo(40)
@@ -170,19 +210,19 @@ class HomeViewController: UIViewController {
         }
         
         notificationButton.snp.makeConstraints { make in
-            make.width.height.equalTo(20)
+            make.width.height.equalTo(30)
             make.left.equalToSuperview().offset(10)
             make.centerY.equalToSuperview()
         }
         
         notificationButton2.snp.makeConstraints { make in
-            make.width.height.equalTo(20)
+            make.width.height.equalTo(30)
             make.leftMargin.equalTo(notificationButton).offset(25)
             make.centerY.equalToSuperview()
         }
         
         notificationButton3.snp.makeConstraints { make in
-            make.width.height.equalTo(20)
+            make.width.height.equalTo(30)
             make.leftMargin.equalTo(notificationButton2).offset(25)
             make.centerY.equalToSuperview()
         }
@@ -196,7 +236,7 @@ class HomeViewController: UIViewController {
         
         searchView.snp.makeConstraints { make in
             make.width.equalTo(350)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.top.equalTo(topView).offset(70)
             make.centerX.equalToSuperview()
         }
@@ -214,10 +254,10 @@ class HomeViewController: UIViewController {
             make.left.equalTo(searchButton).offset(50)
         }
         
-        newsView.snp.makeConstraints { make in
+        /*newsView.snp.makeConstraints { make in
             make.top.equalTo(searchView).offset(60)
             make.centerX.equalToSuperview()
-        }
+        }*/
         
        
     }

@@ -21,7 +21,7 @@ struct NewsView {
         let button = UIButton()
         button.setTitle("NEWS", for: [])
         //button.configuration = .filled()
-        button.backgroundColor = .blue
+        button.backgroundColor = .systemGray
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowRadius = 1
         button.layer.shadowOffset = CGSize(width: -1, height: 1)
@@ -35,9 +35,7 @@ struct NewsView {
         view.addSubview(buttonNews)
         constrait()
     }
-    
- 
-    
+  
     func constrait()
     {
         buttonNews.snp.makeConstraints { make in

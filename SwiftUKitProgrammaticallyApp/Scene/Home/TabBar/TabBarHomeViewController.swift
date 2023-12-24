@@ -13,7 +13,9 @@ class TabBarHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         tabVarInit()
     }
     

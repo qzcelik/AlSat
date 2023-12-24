@@ -12,15 +12,31 @@
 		10A60FAC2B36FE7A006FEB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A60FAB2B36FE7A006FEB99 /* Assets.xcassets */; };
 		10A60FAF2B36FE7A006FEB99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A60FAD2B36FE7A006FEB99 /* LaunchScreen.storyboard */; };
 		10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FB62B36FF63006FEB99 /* HomeViewController.swift */; };
-		10A60FBF2B373E9E006FEB99 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 10A60FBE2B373E9E006FEB99 /* SnapKit */; };
-		10A60FC12B373E9E006FEB99 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 10A60FC02B373E9E006FEB99 /* SnapKit-Dynamic */; };
 		10A60FC92B377277006FEB99 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FC82B377277006FEB99 /* NewsView.swift */; };
 		10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */; };
 		10AA4B6C2B38355600A72F7D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */; };
+		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
+		10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01472B3875F800097CD4 /* ConstantVariable.swift */; };
+		10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB014A2B388D3200097CD4 /* ProductTableView.swift */; };
+		10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */; };
+		9BE49B918C52B83F4986575B /* Pods_SwiftUKitProgrammaticallyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD10894E008745096D8109F /* Pods_SwiftUKitProgrammaticallyApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		10D66D102B38BDB000984844 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		10A60F9F2B36FE79006FEB99 /* FormTest1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormTest1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUKitProgrammaticallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A60FA22B36FE79006FEB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		10A60FAB2B36FE7A006FEB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,6 +46,13 @@
 		10A60FC82B377277006FEB99 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeViewController.swift; sourceTree = "<group>"; };
 		10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		10CB01472B3875F800097CD4 /* ConstantVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariable.swift; sourceTree = "<group>"; };
+		10CB014A2B388D3200097CD4 /* ProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableView.swift; sourceTree = "<group>"; };
+		10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHorizontalViewController.swift; sourceTree = "<group>"; };
+		75156DCBF0EF0B5FDD2807BF /* Pods-SwiftUKitProgrammaticallyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUKitProgrammaticallyApp.release.xcconfig"; path = "Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp.release.xcconfig"; sourceTree = "<group>"; };
+		843FC8BF359627061842283D /* Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8CD10894E008745096D8109F /* Pods_SwiftUKitProgrammaticallyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUKitProgrammaticallyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,8 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10A60FBF2B373E9E006FEB99 /* SnapKit in Frameworks */,
-				10A60FC12B373E9E006FEB99 /* SnapKit-Dynamic in Frameworks */,
+				9BE49B918C52B83F4986575B /* Pods_SwiftUKitProgrammaticallyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,13 +72,15 @@
 			children = (
 				10A60FA12B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */,
 				10A60FA02B36FE79006FEB99 /* Products */,
+				10D66D122B38BFC300984844 /* Frameworks */,
+				69FA6BF98A3739EC67D790A9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		10A60FA02B36FE79006FEB99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10A60F9F2B36FE79006FEB99 /* FormTest1.app */,
+				10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +108,7 @@
 		10A60FB92B37232F006FEB99 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				10CB01492B388CFA00097CD4 /* ProductViews */,
 				10AA4B6D2B38418C00A72F7D /* Intro */,
 				10A60FC22B376C88006FEB99 /* Extensions */,
 				10A60FBA2B37233C006FEB99 /* Home */,
@@ -97,7 +122,6 @@
 				10AA4B662B3830B100A72F7D /* TabBar */,
 				10A60FC52B376E1F006FEB99 /* NewsView */,
 				10A60FB62B36FF63006FEB99 /* HomeViewController.swift */,
-				10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -114,6 +138,7 @@
 		10A60FBC2B37236D006FEB99 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				10CB01462B38753F00097CD4 /* Constant */,
 				10A60FB02B36FE7A006FEB99 /* Info.plist */,
 			);
 			path = Support;
@@ -145,32 +170,69 @@
 		10AA4B6D2B38418C00A72F7D /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				10CB01432B3849DD00097CD4 /* IntroViewController.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		10CB01462B38753F00097CD4 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				10CB01472B3875F800097CD4 /* ConstantVariable.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		10CB01492B388CFA00097CD4 /* ProductViews */ = {
+			isa = PBXGroup;
+			children = (
+				10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */,
+				10CB014A2B388D3200097CD4 /* ProductTableView.swift */,
+				10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */,
+			);
+			path = ProductViews;
+			sourceTree = "<group>";
+		};
+		10D66D122B38BFC300984844 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CD10894E008745096D8109F /* Pods_SwiftUKitProgrammaticallyApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69FA6BF98A3739EC67D790A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				843FC8BF359627061842283D /* Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig */,
+				75156DCBF0EF0B5FDD2807BF /* Pods-SwiftUKitProgrammaticallyApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		10A60F9E2B36FE79006FEB99 /* FormTest1 */ = {
+		10A60F9E2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "FormTest1" */;
+			buildConfigurationList = 10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "SwiftUKitProgrammaticallyApp" */;
 			buildPhases = (
+				643E24811A077FFF472CCF9C /* [CP] Check Pods Manifest.lock */,
 				10A60F9B2B36FE79006FEB99 /* Sources */,
 				10A60F9C2B36FE79006FEB99 /* Frameworks */,
 				10A60F9D2B36FE79006FEB99 /* Resources */,
+				10D66D102B38BDB000984844 /* Embed Frameworks */,
+				5A1F6F327D3901DFE9186438 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FormTest1;
+			name = SwiftUKitProgrammaticallyApp;
 			packageProductDependencies = (
-				10A60FBE2B373E9E006FEB99 /* SnapKit */,
-				10A60FC02B373E9E006FEB99 /* SnapKit-Dynamic */,
 			);
 			productName = FormTest1;
-			productReference = 10A60F9F2B36FE79006FEB99 /* FormTest1.app */;
+			productReference = 10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -198,13 +260,12 @@
 			);
 			mainGroup = 10A60F962B36FE79006FEB99;
 			packageReferences = (
-				10A60FBD2B373E9E006FEB99 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 10A60FA02B36FE79006FEB99 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				10A60F9E2B36FE79006FEB99 /* FormTest1 */,
+				10A60F9E2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */,
 			);
 		};
 /* End PBXProject section */
@@ -221,13 +282,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A1F6F327D3901DFE9186438 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		643E24811A077FFF472CCF9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftUKitProgrammaticallyApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10A60F9B2B36FE79006FEB99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */,
+				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
+				10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */,
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
+				10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */,
+				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
 				10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */,
 				10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */,
@@ -301,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -358,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -370,12 +477,14 @@
 		};
 		10A60FB42B36FE7A006FEB99 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 843FC8BF359627061842283D /* Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NXDTZL8R;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftUKitProgrammaticallyApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -398,12 +507,14 @@
 		};
 		10A60FB52B36FE7A006FEB99 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75156DCBF0EF0B5FDD2807BF /* Pods-SwiftUKitProgrammaticallyApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 22NXDTZL8R;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftUKitProgrammaticallyApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -436,7 +547,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "FormTest1" */ = {
+		10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "SwiftUKitProgrammaticallyApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				10A60FB42B36FE7A006FEB99 /* Debug */,
@@ -446,30 +557,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		10A60FBD2B373E9E006FEB99 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		10A60FBE2B373E9E006FEB99 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 10A60FBD2B373E9E006FEB99 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		10A60FC02B373E9E006FEB99 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 10A60FBD2B373E9E006FEB99 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 10A60F972B36FE79006FEB99 /* Project object */;
 }
