@@ -13,6 +13,8 @@
 		10A60FAF2B36FE7A006FEB99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A60FAD2B36FE7A006FEB99 /* LaunchScreen.storyboard */; };
 		10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FB62B36FF63006FEB99 /* HomeViewController.swift */; };
 		10A60FC92B377277006FEB99 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FC82B377277006FEB99 /* NewsView.swift */; };
+		10A82A1E2B3A030E0005E04B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82A1D2B3A030E0005E04B /* ProductModel.swift */; };
+		10A82A212B3A06F50005E04B /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82A202B3A06F50005E04B /* ProductService.swift */; };
 		10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */; };
 		10AA4B6C2B38355600A72F7D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */; };
 		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
@@ -44,6 +46,8 @@
 		10A60FB02B36FE7A006FEB99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10A60FB62B36FF63006FEB99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		10A60FC82B377277006FEB99 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		10A82A1D2B3A030E0005E04B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		10A82A202B3A06F50005E04B /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeViewController.swift; sourceTree = "<group>"; };
 		10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 		10A60FA12B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */ = {
 			isa = PBXGroup;
 			children = (
+				10A82A1F2B3A06A60005E04B /* Models */,
+				10A82A1C2B3A02EC0005E04B /* Services */,
 				10A60FBC2B37236D006FEB99 /* Support */,
 				10A60FBB2B372354006FEB99 /* Resources */,
 				10A60FB92B37232F006FEB99 /* Scene */,
@@ -157,6 +163,22 @@
 				10A60FC82B377277006FEB99 /* NewsView.swift */,
 			);
 			path = NewsView;
+			sourceTree = "<group>";
+		};
+		10A82A1C2B3A02EC0005E04B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				10A82A202B3A06F50005E04B /* ProductService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		10A82A1F2B3A06A60005E04B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10A82A1D2B3A030E0005E04B /* ProductModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		10AA4B662B3830B100A72F7D /* TabBar */ = {
@@ -334,9 +356,11 @@
 				10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */,
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
 				10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */,
+				10A82A212B3A06F50005E04B /* ProductService.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
 				10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */,
+				10A82A1E2B3A030E0005E04B /* ProductModel.swift in Sources */,
 				10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */,
 				10AA4B6C2B38355600A72F7D /* ProductDetailViewController.swift in Sources */,
 			);

@@ -9,21 +9,26 @@
 import UIKit
 import SnapKit
 
-struct CustomData {
-    var title: String
-    var url: String
-    var backgroundImage: UIImage
-}
-
 class ProductVerticalViewController: UIViewController {
     
-     let data = [
-        CustomData(title: "The Islands!", url: "maxcodes.io/enroll", backgroundImage:  #imageLiteral(resourceName: "introBg")),
-        CustomData(title: "Subscribe to maxcodes boiiii!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "introBg")),
-        CustomData(title: "StoreKit Course!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "introBg")),
-        CustomData(title: "Collection Views!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "introBg")),
-        CustomData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "introBg")),
-    ]
+
+    
+    var tableCount : Int = 0
+    var dataArray : [ProductModel] = []
+    
+    init(tableCount: Int, dataArray: [ProductModel]) {
+           
+        self.tableCount = tableCount
+        self.dataArray = dataArray
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
      let collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -52,7 +57,8 @@ class ProductVerticalViewController: UIViewController {
             make.center.equalToSuperview()
         }
     }
-
+    
+    
 }
 
 extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -61,12 +67,12 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return tableCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.data = self.data[indexPath.item]
+        cell.data = dataArray[indexPath.item]
         return cell
     }
 }
@@ -74,10 +80,11 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
 
 class CustomCell: UICollectionViewCell {
     
-    var data: CustomData? {
+    var data: ProductModel? {
         didSet {
             guard let data = data else { return }
-            producHorizontalImage.image = data.backgroundImage
+            producHorizontalImage.image = data.image
+            productTitle.text = data.title
         }
     }
     
@@ -89,9 +96,20 @@ class CustomCell: UICollectionViewCell {
         return iv
     }()
     
+    let productTitle : UILabel =
+    {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 10)
+        label.textColor = .red
+        return label
+    }()
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         contentView.addSubview(producHorizontalImage)
+        contentView.addSubview(productTitle)
         constrait()
     }
     
@@ -100,6 +118,11 @@ class CustomCell: UICollectionViewCell {
         producHorizontalImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.height.equalTo(150)
+        }
+        
+        productTitle.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.center.equalTo(producHorizontalImage)
         }
     }
     

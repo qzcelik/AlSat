@@ -47,12 +47,12 @@ class ProductTableView : UIViewController {
    extension ProductTableView : UITableViewDelegate, UITableViewDataSource
 {
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 100
+           return 15
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-           cell.textLabel?.text = "1"
+           cell.textLabel?.text = "Test"
            return cell
        }
        

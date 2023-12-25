@@ -11,6 +11,7 @@ import SnapKit
 class HomeViewController: UIViewController {
 
     
+    
     let profilButton : UIButton = {
         
         let profile = UIButton()
@@ -116,12 +117,21 @@ class HomeViewController: UIViewController {
         let containerView = UIView()
         return containerView
         
+    }() 
+    
+    let containerProductView2 : UIView = {
+        
+        let containerView = UIView()
+        return containerView
+        
     }()
     
     let containerProductTableView : UIView = {
         let view = UIView()
         return view
     }()
+    
+    
     
     //var newsView: UIView = NewsView().view
     
@@ -148,14 +158,22 @@ class HomeViewController: UIViewController {
         
         //view.addSubview(newsView)
         view.addSubview(containerProductView)
+        view.addSubview(containerProductView2)
         view.addSubview(containerProductTableView)
         
-        let productView = ProductVerticalViewController()
+        let productView = ProductVerticalViewController(tableCount: ProductService().prodcutDataDetail.count,dataArray: ProductService().prodcutDataDetail)
         productView.willMove(toParent: self)
         containerProductView.addSubview(productView.view)
         productView.view.frame = containerProductView.bounds
         addChild(productView)
-        productView.didMove(toParent: self)
+        productView.didMove(toParent: self)  
+        
+        let productView2 = ProductVerticalViewController(tableCount: ProductService().prodcutDataHomeView.count, dataArray: ProductService().prodcutDataHomeView)
+        productView2.willMove(toParent: self)
+        containerProductView2.addSubview(productView2.view)
+        productView2.view.frame = containerProductView2.bounds
+        addChild(productView2)
+        productView2.didMove(toParent: self)
         
         let productTableView = ProductTableView()
         productTableView.willMove(toParent: self)
@@ -173,14 +191,21 @@ class HomeViewController: UIViewController {
         
         containerProductTableView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(400)
+            make.height.equalTo(100)
             make.topMargin.equalTo(containerProductView).offset(150)
-        }
+        }   
+        
         
         containerProductView.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(100)
             make.topMargin.equalTo(searchView).offset(100)
+        }   
+        
+        containerProductView2.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(150)
+            make.topMargin.equalTo(containerProductTableView).offset(100)
         }
         
         profilButton.snp.makeConstraints { make in
