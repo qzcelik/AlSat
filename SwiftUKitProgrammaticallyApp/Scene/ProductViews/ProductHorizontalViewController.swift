@@ -28,15 +28,15 @@ class ProductVerticalViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
      let collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
-        return cv
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+        return collectionView
     }()
 
     override func viewDidLoad() {
@@ -53,12 +53,10 @@ class ProductVerticalViewController: UIViewController {
     {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(200)
+            make.height.equalTo(250)
             make.center.equalToSuperview()
         }
     }
-    
-    
 }
 
 extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -85,6 +83,8 @@ class CustomCell: UICollectionViewCell {
             guard let data = data else { return }
             producHorizontalImage.image = data.image
             productTitle.text = data.title
+            shorDetail.text = data.shortDetail
+            price.text = "\(data.price) TL"
         }
     }
     
@@ -92,38 +92,84 @@ class CustomCell: UICollectionViewCell {
        let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
+        iv.layer.cornerRadius = ConstantVariable.cornerRadius
         return iv
     }()
     
     let productTitle : UILabel =
     {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10)
-        label.textColor = .red
+        label.font = .boldSystemFont(ofSize: 12)
+        label.textColor = .black
         return label
     }()
     
+    let likeButton : UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "heart"), for: [])
+        button.tintColor = .white
+        return button
+    }()
+    
+    let shorDetail : UILabel = {
+       
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .black
+        return label
+    }()
+    
+    let price : UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 10)
+        label.textColor = .black
+        return label
+    }()
     
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         contentView.addSubview(producHorizontalImage)
         contentView.addSubview(productTitle)
+        contentView.addSubview(likeButton)
+        contentView.addSubview(shorDetail)
+        contentView.addSubview(price)
         constrait()
     }
     
     func constrait()
     {
+        likeButton.snp.makeConstraints { make in
+            make.topMargin.equalTo(producHorizontalImage).offset(10)
+            make.right.equalTo(producHorizontalImage).offset(-10)
+            make.height.equalTo(15)
+            make.height.equalTo(20)
+        }
         producHorizontalImage.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.topMargin.equalToSuperview()
             make.width.height.equalTo(150)
         }
         
         productTitle.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
-            make.center.equalTo(producHorizontalImage)
+            make.height.equalTo(50)
+            make.width.equalTo(producHorizontalImage)
+            make.leftMargin.bottomMargin.equalTo(contentView).offset(5)
         }
+        
+         shorDetail.snp.makeConstraints { make in
+             make.height.equalTo(50)
+             make.width.equalTo(contentView)
+             make.topMargin.equalTo(productTitle).offset(15)
+             make.leftMargin.equalTo(productTitle)
+        }
+        
+        price.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.width.equalTo(contentView)
+            make.topMargin.equalTo(shorDetail).offset(15)
+            make.leftMargin.equalTo(shorDetail)
+        }
+            
     }
     
     required init?(coder aDecoder: NSCoder) {

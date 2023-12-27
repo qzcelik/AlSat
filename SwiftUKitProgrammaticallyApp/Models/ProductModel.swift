@@ -12,6 +12,9 @@ struct ProductModel
 {
     var title : String
     var url : String
+    var shortDetail : String
+    var longDetail : String?
+    var price : CGFloat
     var image : UIImage
 }
 

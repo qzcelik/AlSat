@@ -20,13 +20,8 @@ struct NewsView {
         
         let button = UIButton()
         button.setTitle("NEWS", for: [])
-        //button.configuration = .filled()
-        button.backgroundColor = .systemGray
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 1
-        button.layer.shadowOffset = CGSize(width: -1, height: 1)
-        button.layer.shadowOpacity = 0.5
-        button.layer.cornerRadius = 10
+        button.setBackgroundImage(.introBg, for: [])
+        button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
     

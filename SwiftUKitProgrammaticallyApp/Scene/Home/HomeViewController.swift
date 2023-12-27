@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         let profile = UIButton()
         profile.setImage(UIImage(systemName: "person"), for: [])
         profile.tintColor = .black
-        profile.layer.cornerRadius = 5
+        profile.layer.cornerRadius = ConstantVariable.cornerRadius
         profile.layer.borderWidth = 1
         return profile
     }()
@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
     let searchView : UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 7
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
         view.layer.borderWidth  = 1
         return view
     }()
@@ -119,24 +119,31 @@ class HomeViewController: UIViewController {
         
     }() 
     
-    let containerProductView2 : UIView = {
-        
-        let containerView = UIView()
-        return containerView
-        
-    }()
-    
+  
     let containerProductTableView : UIView = {
         let view = UIView()
         return view
     }()
     
+
+    let scroolView : UIScrollView = {
+        let scroolView = UIScrollView()
+        return scroolView
+    }()
+    
+    let contentView : UIView = {
+       let view = UIView()
+       
+       return view
+    }()
     
     
-    //var newsView: UIView = NewsView().view
     
+    var newsView: UIView = NewsView().view
+    var newsView2: UIView = NewsView().view
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         title = "Ana Sayfa"
         topViewInfo.addSubview(profilButton)
@@ -153,34 +160,33 @@ class HomeViewController: UIViewController {
         searchView.addSubview(searchButton)
         searchView.addSubview(inputField)
         
-        view.addSubview(topView)
-        view.addSubview(searchView)
+        contentView.addSubview(topView)
+        contentView.addSubview(searchView)
+        contentView.addSubview(newsView)
+        contentView.addSubview(newsView2)
+        contentView.addSubview(containerProductView)
         
-        //view.addSubview(newsView)
-        view.addSubview(containerProductView)
-        view.addSubview(containerProductView2)
-        view.addSubview(containerProductTableView)
+        scroolView.addSubview(contentView)
         
-        let productView = ProductVerticalViewController(tableCount: ProductService().prodcutDataDetail.count,dataArray: ProductService().prodcutDataDetail)
-        productView.willMove(toParent: self)
-        containerProductView.addSubview(productView.view)
-        productView.view.frame = containerProductView.bounds
-        addChild(productView)
-        productView.didMove(toParent: self)  
+        view.addSubview(scroolView)
+       // view.addSubview(containerProductTableView)
         
-        let productView2 = ProductVerticalViewController(tableCount: ProductService().prodcutDataHomeView.count, dataArray: ProductService().prodcutDataHomeView)
-        productView2.willMove(toParent: self)
-        containerProductView2.addSubview(productView2.view)
-        productView2.view.frame = containerProductView2.bounds
-        addChild(productView2)
-        productView2.didMove(toParent: self)
+        let productView = ProductVerticalViewController(tableCount: ProductService().prodcutDataHomeView.count,dataArray: ProductService().prodcutDataHomeView)
+            productView.willMove(toParent: self)
+            containerProductView.addSubview(productView.view)
+            productView.view.frame = containerProductView.bounds
+            addChild(productView)
+            productView.didMove(toParent: self)
         
-        let productTableView = ProductTableView()
+        
+        
+       /* let productTableView = ProductTableView()
         productTableView.willMove(toParent: self)
         containerProductTableView.addSubview(productTableView.view)
         productTableView.view.frame = containerProductTableView.bounds
         addChild(productTableView)
         productTableView.didMove(toParent: self)
+        */
         
         addConstrait()
         
@@ -189,23 +195,27 @@ class HomeViewController: UIViewController {
     func addConstrait()
     {
         
-        containerProductTableView.snp.makeConstraints { make in
+       /* containerProductTableView.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(100)
             make.topMargin.equalTo(containerProductView).offset(150)
-        }   
+        }   */
         
+        contentView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(scroolView)
+            make.left.right.equalTo(view)
+            make.width.height.equalTo(scroolView)
+        }
+        
+        scroolView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
         
         containerProductView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(100)
-            make.topMargin.equalTo(searchView).offset(100)
-        }   
-        
-        containerProductView2.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(150)
-            make.topMargin.equalTo(containerProductTableView).offset(100)
+            make.width.equalTo(scroolView)
+            make.height.equalTo(200)
+            make.topMargin.equalTo(searchView).offset(75)
+            make.left.right.equalTo(scroolView).offset(5)
         }
         
         profilButton.snp.makeConstraints { make in
@@ -213,7 +223,6 @@ class HomeViewController: UIViewController {
             make.left.equalTo(5)
             make.centerY.equalTo(topView)
         }
-        
         
         messageLabel.snp.makeConstraints { make in
             make.width.equalTo(100)
@@ -255,8 +264,8 @@ class HomeViewController: UIViewController {
         
         topView.snp.makeConstraints { (make) in
             make.height.equalTo(50)
-            make.width.equalToSuperview()
-            make.topMargin.equalTo(10)
+            make.width.equalTo(scroolView)
+            make.top.equalTo(scroolView).offset(10)
         }
         
         searchView.snp.makeConstraints { make in
@@ -279,15 +288,14 @@ class HomeViewController: UIViewController {
             make.left.equalTo(searchButton).offset(50)
         }
         
-        /*newsView.snp.makeConstraints { make in
-            make.top.equalTo(searchView).offset(60)
-            make.centerX.equalToSuperview()
-        }*/
+        newsView.snp.makeConstraints { make in
+            make.topMargin.equalTo(containerProductView).offset(250)
+            make.centerX.equalTo(scroolView)
+        }
         
-       
+        newsView2.snp.makeConstraints { make in
+            make.topMargin.equalTo(newsView).offset(250)
+            make.centerX.equalTo(scroolView)
+        }
     }
-    
-
-    
-
 }
