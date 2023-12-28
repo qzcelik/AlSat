@@ -119,6 +119,13 @@ class HomeViewController: UIViewController {
         
     }() 
     
+    let containerProductDoubleView : UIView = {
+       
+        let containerView = UIView()
+        return containerView
+        
+    }()
+    
   
     let containerProductTableView : UIView = {
         let view = UIView()
@@ -128,6 +135,7 @@ class HomeViewController: UIViewController {
 
     let scroolView : UIScrollView = {
         let scroolView = UIScrollView()
+        scroolView.showsVerticalScrollIndicator = false
         return scroolView
     }()
     
@@ -152,7 +160,6 @@ class HomeViewController: UIViewController {
         
         topIconsView.addSubview(notificationButton)
         topIconsView.addSubview(notificationButton2)
-        topIconsView.addSubview(notificationButton3)
         
         topView.addSubview(topIconsView)
         topView.addSubview(topViewInfo)
@@ -165,9 +172,9 @@ class HomeViewController: UIViewController {
         contentView.addSubview(newsView)
         contentView.addSubview(newsView2)
         contentView.addSubview(containerProductView)
+        contentView.addSubview(containerProductDoubleView)
         
         scroolView.addSubview(contentView)
-        
         view.addSubview(scroolView)
        // view.addSubview(containerProductTableView)
         
@@ -177,6 +184,13 @@ class HomeViewController: UIViewController {
             productView.view.frame = containerProductView.bounds
             addChild(productView)
             productView.didMove(toParent: self)
+        
+        let productViewDouble = ProductVerticalViewController(tableCount: 2,dataArray: ProductService().prodcutDataHomeView)
+            productViewDouble.willMove(toParent: self)
+            containerProductDoubleView.addSubview(productViewDouble.view)
+            productViewDouble.view.frame = containerProductDoubleView.bounds
+            addChild(productViewDouble)
+            productViewDouble.didMove(toParent: self)
         
         
         
@@ -204,7 +218,8 @@ class HomeViewController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scroolView)
             make.left.right.equalTo(view)
-            make.width.height.equalTo(scroolView)
+            make.width.equalTo(scroolView)
+            make.height.equalTo(1100)
         }
         
         scroolView.snp.makeConstraints { make in
@@ -214,8 +229,15 @@ class HomeViewController: UIViewController {
         containerProductView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
             make.height.equalTo(200)
-            make.topMargin.equalTo(searchView).offset(75)
+            make.topMargin.equalTo(newsView).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
+        }
+        
+        containerProductDoubleView.snp.makeConstraints { make in
+            make.width.equalTo(scroolView)
+            make.height.equalTo(200)
+            make.topMargin.equalTo(newsView2).offset(230)
+            make.left.equalTo(50)
         }
         
         profilButton.snp.makeConstraints { make in
@@ -238,29 +260,23 @@ class HomeViewController: UIViewController {
         
         topIconsView.snp.makeConstraints { make in
             make.width.equalTo(100)
-            make.height.equalTo(40)
-            make.right.equalTo(10)
+            make.height.equalTo(50)
+            make.right.equalTo(1)
             make.centerY.equalTo(topView)
         }
         
         notificationButton.snp.makeConstraints { make in
-            make.width.height.equalTo(30)
-            make.left.equalToSuperview().offset(10)
+            make.width.height.equalTo(75)
+            make.left.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
         notificationButton2.snp.makeConstraints { make in
-            make.width.height.equalTo(30)
-            make.leftMargin.equalTo(notificationButton).offset(25)
+            make.width.height.equalTo(75)
+            make.leftMargin.equalTo(notificationButton).offset(40)
             make.centerY.equalToSuperview()
         }
-        
-        notificationButton3.snp.makeConstraints { make in
-            make.width.height.equalTo(30)
-            make.leftMargin.equalTo(notificationButton2).offset(25)
-            make.centerY.equalToSuperview()
-        }
-   
+       
         
         topView.snp.makeConstraints { (make) in
             make.height.equalTo(50)
@@ -289,12 +305,12 @@ class HomeViewController: UIViewController {
         }
         
         newsView.snp.makeConstraints { make in
-            make.topMargin.equalTo(containerProductView).offset(250)
+            make.topMargin.equalTo(searchView).offset(50)
             make.centerX.equalTo(scroolView)
         }
         
         newsView2.snp.makeConstraints { make in
-            make.topMargin.equalTo(newsView).offset(250)
+            make.topMargin.equalTo(containerProductView).offset(250)
             make.centerX.equalTo(scroolView)
         }
     }

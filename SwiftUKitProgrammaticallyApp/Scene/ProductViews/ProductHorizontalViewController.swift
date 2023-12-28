@@ -53,7 +53,7 @@ class ProductVerticalViewController: UIViewController {
     {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(250)
+            make.height.equalTo(220)
             make.center.equalToSuperview()
         }
     }

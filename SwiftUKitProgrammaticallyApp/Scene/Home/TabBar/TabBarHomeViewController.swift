@@ -26,7 +26,7 @@ class TabBarHomeViewController: UIViewController {
         let VCProductDetail = UINavigationController(rootViewController: ProductDetailViewController())
         
         VCHome.title = "Home"
-        VCProductDetail.title = "Ürün"
+        VCProductDetail.title = "Favori"
         
         tabBarController.setViewControllers([VCHome,VCProductDetail], animated:false)
         tabBarController.tabBar.layer.backgroundColor = UIColor.white.cgColor

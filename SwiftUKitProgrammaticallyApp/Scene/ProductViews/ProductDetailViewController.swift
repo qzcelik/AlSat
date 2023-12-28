@@ -11,7 +11,7 @@ class ProductDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ürün"
+        title = "Favori"
         view.backgroundColor = .purple
         
         let alert = UIAlertController(title: "title", message: "did load", preferredStyle: UIAlertController.Style.alert)

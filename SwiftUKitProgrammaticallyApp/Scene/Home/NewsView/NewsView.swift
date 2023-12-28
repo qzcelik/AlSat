@@ -34,7 +34,7 @@ struct NewsView {
     func constrait()
     {
         buttonNews.snp.makeConstraints { make in
-            make.width.equalTo(300)
+            make.width.equalTo(400)
             make.height.equalTo(200)
             make.centerX.equalToSuperview()
         }
