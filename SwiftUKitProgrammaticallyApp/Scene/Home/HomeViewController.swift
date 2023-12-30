@@ -7,10 +7,11 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class HomeViewController: UIViewController {
-
     
+   
     
     let profilButton : UIButton = {
         
@@ -178,19 +179,25 @@ class HomeViewController: UIViewController {
         view.addSubview(scroolView)
        // view.addSubview(containerProductTableView)
         
-        let productView = ProductVerticalViewController(tableCount: ProductService().prodcutDataHomeView.count,dataArray: ProductService().prodcutDataHomeView)
-            productView.willMove(toParent: self)
-            containerProductView.addSubview(productView.view)
-            productView.view.frame = containerProductView.bounds
-            addChild(productView)
-            productView.didMove(toParent: self)
+        proTest().pro(){(result) -> () in
+            
+            let productView = ProductVerticalViewController(tableCount: result.count,dataArray: result)
+                productView.willMove(toParent: self)
+            self.containerProductView.addSubview(productView.view)
+            productView.view.frame = self.containerProductView.bounds
+            self.addChild(productView)
+                productView.didMove(toParent: self)
+            
+            let productViewDouble = ProductVerticalViewController(tableCount: result.count, dataArray: result)
+                productViewDouble.willMove(toParent: self)
+            self.containerProductDoubleView.addSubview(productViewDouble.view)
+            productViewDouble.view.frame = self.containerProductDoubleView.bounds
+            self.addChild(productViewDouble)
+                productViewDouble.didMove(toParent: self)
+            
+        }
         
-        let productViewDouble = ProductVerticalViewController(tableCount: 2,dataArray: ProductService().prodcutDataHomeView)
-            productViewDouble.willMove(toParent: self)
-            containerProductDoubleView.addSubview(productViewDouble.view)
-            productViewDouble.view.frame = containerProductDoubleView.bounds
-            addChild(productViewDouble)
-            productViewDouble.didMove(toParent: self)
+  
         
         
         
@@ -205,6 +212,10 @@ class HomeViewController: UIViewController {
         addConstrait()
         
     }
+    
+  
+    
+    
     
     func addConstrait()
     {
@@ -287,7 +298,7 @@ class HomeViewController: UIViewController {
         searchView.snp.makeConstraints { make in
             make.width.equalTo(350)
             make.height.equalTo(40)
-            make.top.equalTo(topView).offset(70)
+            make.top.equalTo(topView).offset(60)
             make.centerX.equalToSuperview()
         }
         

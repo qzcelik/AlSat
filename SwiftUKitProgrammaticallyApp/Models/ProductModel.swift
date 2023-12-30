@@ -8,14 +8,13 @@
 import Foundation
 import UIKit
 
-struct ProductModel
+struct ProductModel : Codable
 {
-    var title : String
-    var url : String
-    var shortDetail : String
-    var longDetail : String?
-    var price : CGFloat
-    var image : UIImage
+    var title : String?
+    var descriptionShort : String?
+    var descriptionLong : String?
+    var imageUrl : String?
+    var price : String?
 }
 
 

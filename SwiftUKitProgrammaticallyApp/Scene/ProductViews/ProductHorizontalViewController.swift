@@ -8,6 +8,9 @@
 
 import UIKit
 import SnapKit
+import Alamofire
+import AlamofireImage
+
 
 class ProductVerticalViewController: UIViewController {
     
@@ -81,9 +84,12 @@ class CustomCell: UICollectionViewCell {
     var data: ProductModel? {
         didSet {
             guard let data = data else { return }
-            producHorizontalImage.image = data.image
+            let pImage = AF.request(data.imageUrl!).responseImage { response in
+                self.producHorizontalImage.image = UIImage(data: response.data!)
+            }
+          
             productTitle.text = data.title
-            shorDetail.text = data.shortDetail
+            shorDetail.text = data.descriptionShort
             price.text = "\(data.price) TL"
         }
     }

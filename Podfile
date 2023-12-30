@@ -6,6 +6,7 @@ target 'SwiftUKitProgrammaticallyApp' do
   use_frameworks!
   pod 'SnapKit', '~> 5.6.0'
   pod 'Alamofire'
+  pod 'AlamofireImage', '~> 4.3'
 end
 
  
