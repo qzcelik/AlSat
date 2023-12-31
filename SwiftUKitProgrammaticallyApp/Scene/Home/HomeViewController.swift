@@ -180,21 +180,7 @@ class HomeViewController: UIViewController {
        // view.addSubview(containerProductTableView)
         
         proTest().pro(){(result) -> () in
-            
-            let productView = ProductVerticalViewController(tableCount: result.count,dataArray: result)
-                productView.willMove(toParent: self)
-            self.containerProductView.addSubview(productView.view)
-            productView.view.frame = self.containerProductView.bounds
-            self.addChild(productView)
-                productView.didMove(toParent: self)
-            
-            let productViewDouble = ProductVerticalViewController(tableCount: result.count, dataArray: result)
-                productViewDouble.willMove(toParent: self)
-            self.containerProductDoubleView.addSubview(productViewDouble.view)
-            productViewDouble.view.frame = self.containerProductDoubleView.bounds
-            self.addChild(productViewDouble)
-                productViewDouble.didMove(toParent: self)
-            
+            self.generateHorizontalMenu(result: result)
         }
         
   
@@ -211,6 +197,23 @@ class HomeViewController: UIViewController {
         
         addConstrait()
         
+    }
+    
+    func generateHorizontalMenu(result : [ProductModel])
+    {
+        let productView = ProductVerticalViewController(tableCount: result.count,dataArray: result)
+            productView.willMove(toParent: self)
+        self.containerProductView.addSubview(productView.view)
+        productView.view.frame = self.containerProductView.bounds
+        self.addChild(productView)
+            productView.didMove(toParent: self)
+        
+        let productViewDouble = ProductVerticalViewController(tableCount: 2, dataArray: result)
+            productViewDouble.willMove(toParent: self)
+        self.containerProductDoubleView.addSubview(productViewDouble.view)
+        productViewDouble.view.frame = self.containerProductDoubleView.bounds
+        self.addChild(productViewDouble)
+            productViewDouble.didMove(toParent: self)
     }
     
   

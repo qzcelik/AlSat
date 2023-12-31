@@ -90,7 +90,7 @@ class CustomCell: UICollectionViewCell {
           
             productTitle.text = data.title
             shorDetail.text = data.descriptionShort
-            price.text = "\(data.price) TL"
+            price.text = "\(String(describing: data.price!)) TL"
         }
     }
     

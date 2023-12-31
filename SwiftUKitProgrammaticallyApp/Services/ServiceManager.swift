@@ -14,12 +14,25 @@ final class ServiceManager
 
 extension ServiceManager
 {
-    func fetchDataRemoteServer <T> (url: String, onSuccess :@escaping (T) -> (), onError: (AFError) -> ())
-    where T:Codable
+    func pro <T> (url: String, responseItems:@escaping ([T])->()) where T: Codable
     {
-        AF.request(url, encoding: JSONEncoding.default).validate().responseDecodable(of: T.self) { response in
-            guard let model = response.value else { print( response.error as Any ); return}
-            onSuccess(model)
+        let decoder : JSONDecoder = {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return decoder
+        }()
+        
+        AF.request(url).validate(statusCode: 200..<300).responseString(completionHandler: {str in
+                print("str", str)
+        }).responseDecodable(of: [T].self,decoder: decoder){
+            response in
+            switch response.result{
+            case .success(let items):
+                responseItems(items)
+            case.failure(let error):
+                print("items error",error)
+            }
         }
     }
+
 }
