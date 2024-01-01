@@ -39,7 +39,7 @@ class IntroViewController: UIViewController {
         button.setTitle("Başla", for: [])
         button.setTitleColor(UIColor.systemBlue, for: [])
         button.backgroundColor = .lightText
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
         
     }()

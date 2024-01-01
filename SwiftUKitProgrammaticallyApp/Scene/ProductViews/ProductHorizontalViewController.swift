@@ -75,7 +75,6 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.data = dataArray[indexPath.item]
-        
         return cell
     }
     
@@ -93,7 +92,6 @@ class CustomCell: UICollectionViewCell {
             guard let data = data else { return }
             let pImage = AF.request(data.imageUrl!).responseImage { response in
                 self.producHorizontalImage.image = UIImage(data: response.data!)
-                
             }
           
             productTitle.text = data.title
@@ -103,11 +101,11 @@ class CustomCell: UICollectionViewCell {
     }
     
        let producHorizontalImage: UIImageView = {
-       let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.clipsToBounds = true
-        iv.layer.cornerRadius = ConstantVariable.cornerRadius
-        return iv
+       let image = UIImageView()
+           image.contentMode = .scaleAspectFill
+           image.clipsToBounds = true
+           image.layer.cornerRadius = ConstantVariable.cornerRadius
+        return image
     }()
     
     let productTitle : UILabel =
@@ -122,6 +120,7 @@ class CustomCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart"), for: [])
         button.tintColor = .white
+        button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
     
