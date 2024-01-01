@@ -23,7 +23,7 @@ class TabBarHomeViewController: UIViewController {
     {
         let tabBarController = UITabBarController()
         let VCHome = UINavigationController(rootViewController: HomeViewController())
-        let VCProductDetail = UINavigationController(rootViewController: ProductDetailViewController())
+        let VCProductDetail = UINavigationController(rootViewController: ProductFavViewController())
         
         VCHome.title = "Home"
         VCProductDetail.title = "Favori"

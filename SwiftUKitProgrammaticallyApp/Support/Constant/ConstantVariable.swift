@@ -9,6 +9,7 @@ import Foundation
 
 struct ConstantVariable
 {
+    static let baseUrl = "https://ibrahimozcelik.net/iosapp/"
     static let introBGPath = "introBg"
     static let cornerRadius : CGFloat = 5
 }

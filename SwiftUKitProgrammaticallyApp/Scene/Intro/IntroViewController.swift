@@ -51,8 +51,6 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
         initUI()
         setConstrait()
     }

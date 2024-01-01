@@ -146,10 +146,12 @@ class HomeViewController: UIViewController {
        return view
     }()
     
+    let newsContainer : UIView = {
+        let view = UIView()
+        return view
+    }()
     
     
-    var newsView: UIView = NewsView().view
-    var newsView2: UIView = NewsView().view
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -168,25 +170,24 @@ class HomeViewController: UIViewController {
         searchView.addSubview(searchButton)
         searchView.addSubview(inputField)
         
+        
+        
         contentView.addSubview(topView)
         contentView.addSubview(searchView)
-        contentView.addSubview(newsView)
-        contentView.addSubview(newsView2)
         contentView.addSubview(containerProductView)
         contentView.addSubview(containerProductDoubleView)
+        contentView.addSubview(newsContainer)
         
         scroolView.addSubview(contentView)
         view.addSubview(scroolView)
        // view.addSubview(containerProductTableView)
         
-        proTest().pro(){(result) -> () in
+        ProductService().productServiceRequest(){(result) -> () in
             self.generateHorizontalMenu(result: result)
         }
         
+        
   
-        
-        
-        
        /* let productTableView = ProductTableView()
         productTableView.willMove(toParent: self)
         containerProductTableView.addSubview(productTableView.view)
@@ -196,8 +197,20 @@ class HomeViewController: UIViewController {
         */
         
         addConstrait()
+        generateNewsView()
         
     }
+    
+    func generateNewsView()
+    {
+        let newsView = NewsView()
+        newsView.willMove(toParent: self)
+        newsContainer.addSubview(newsView.view)
+        newsView.view.frame = self.newsContainer.bounds
+        self.addChild(newsView)
+        newsView.didMove(toParent: self)
+    }
+    
     
     func generateHorizontalMenu(result : [ProductModel])
     {
@@ -243,14 +256,14 @@ class HomeViewController: UIViewController {
         containerProductView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
             make.height.equalTo(200)
-            make.topMargin.equalTo(newsView).offset(220)
+            make.topMargin.equalTo(newsContainer).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
         }
         
         containerProductDoubleView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
             make.height.equalTo(200)
-            make.topMargin.equalTo(newsView2).offset(230)
+            make.topMargin.equalTo(newsContainer).offset(500)
             make.left.equalTo(50)
         }
         
@@ -318,14 +331,10 @@ class HomeViewController: UIViewController {
             make.left.equalTo(searchButton).offset(50)
         }
         
-        newsView.snp.makeConstraints { make in
+        newsContainer.snp.makeConstraints { make in
             make.topMargin.equalTo(searchView).offset(50)
             make.centerX.equalTo(scroolView)
         }
         
-        newsView2.snp.makeConstraints { make in
-            make.topMargin.equalTo(containerProductView).offset(250)
-            make.centerX.equalTo(scroolView)
-        }
     }
 }

@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
-struct NewsView {
+class NewsView : UIViewController{
 
-    let view : UIView = {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initView()
+    }
+   
+    let viewProduct : UIView = {
         let view = UIView()
         view.backgroundColor = .blue
         return view
@@ -25,12 +31,19 @@ struct NewsView {
         return button
     }()
     
-    init()
+    func initView()
     {
-        view.addSubview(buttonNews)
+        viewProduct.addSubview(buttonNews)
+        view.addSubview(viewProduct)
+        buttonNews.addTarget(self, action: #selector(clickNews), for: .touchUpInside)
         constrait()
     }
-  
+   
+    @objc func clickNews()
+    {
+      print("click test")
+    }
+    
     func constrait()
     {
         buttonNews.snp.makeConstraints { make in
@@ -40,6 +53,8 @@ struct NewsView {
         }
         
     }
+   
+    
     
     
   

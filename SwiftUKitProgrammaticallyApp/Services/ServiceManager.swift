@@ -14,7 +14,7 @@ final class ServiceManager
 
 extension ServiceManager
 {
-    func pro <T> (url: String, responseItems:@escaping ([T])->()) where T: Codable
+    func serviceManagerRequest <T> (url: String, responseItems:@escaping ([T])->()) where T: Codable
     {
         let decoder : JSONDecoder = {
             let decoder = JSONDecoder()

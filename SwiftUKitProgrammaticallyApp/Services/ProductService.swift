@@ -9,14 +9,14 @@ import Foundation
 import Alamofire
 
  
-final class proTest
+final class ProductService
 {
     
-    func pro(responseItems:@escaping ([ProductModel])->())
+    func productServiceRequest(responseItems:@escaping ([ProductModel])->())
     {
-        ServiceManager.sharedService.pro(url: "https://ibrahimozcelik.net/iosapp/productGetData.php") {
-            (_test: [ProductModel]) -> () in
-            responseItems(_test)
+        ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + "productGetData.php") {
+            (productModelList: [ProductModel]) -> () in
+            responseItems(productModelList)
         }
     }
 }

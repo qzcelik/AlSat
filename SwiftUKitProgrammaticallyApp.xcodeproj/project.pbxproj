@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4BD132B42C54800E34358 /* ProductFavViewController.swift */; };
 		10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA22B36FE79006FEB99 /* AppDelegate.swift */; };
 		10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */; };
 		10A60FAC2B36FE7A006FEB99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A60FAB2B36FE7A006FEB99 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
 		10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUKitProgrammaticallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A60FA22B36FE79006FEB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */,
 				10CB014A2B388D3200097CD4 /* ProductTableView.swift */,
 				10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */,
+				10A4BD132B42C54800E34358 /* ProductFavViewController.swift */,
 			);
 			path = ProductViews;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
 				10CA36A12B3E02B00079B251 /* ServiceManager.swift in Sources */,
 				10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */,
+				10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */,
 				10A82A212B3A06F50005E04B /* ProductService.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,

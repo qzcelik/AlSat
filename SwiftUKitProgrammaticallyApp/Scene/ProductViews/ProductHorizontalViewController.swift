@@ -63,6 +63,7 @@ class ProductVerticalViewController: UIViewController {
 }
 
 extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2.7, height: collectionView.frame.width/2.2)
     }
@@ -74,8 +75,14 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.data = dataArray[indexPath.item]
+        
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.present(ProductDetailViewController(data: dataArray[indexPath.item]), animated:true,completion: nil)
+    }
+    
 }
 
 
@@ -86,6 +93,7 @@ class CustomCell: UICollectionViewCell {
             guard let data = data else { return }
             let pImage = AF.request(data.imageUrl!).responseImage { response in
                 self.producHorizontalImage.image = UIImage(data: response.data!)
+                
             }
           
             productTitle.text = data.title
@@ -142,6 +150,9 @@ class CustomCell: UICollectionViewCell {
         contentView.addSubview(price)
         constrait()
     }
+
+
+  
     
     func constrait()
     {
