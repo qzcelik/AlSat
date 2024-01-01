@@ -29,16 +29,13 @@ class ProductFavViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       /* let alert = UIAlertController(title: "title", message: "Appear", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)*/
     }
     
   func generateUI()
     {
         ProductService().productServiceRequest(){(result) -> () in
    
-            let productTableView = ProductTableView(prodcutTable: result)
+            let productTableView = ProductTableView(prodcutTable: result, viewController: ConstantEnums.Views.productDetail)
             productTableView.willMove(toParent: self)
             self.tableViewContainer.addSubview(productTableView.view)
             productTableView.view.frame = self.tableViewContainer.bounds

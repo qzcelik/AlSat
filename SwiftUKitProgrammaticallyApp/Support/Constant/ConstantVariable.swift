@@ -13,3 +13,10 @@ struct ConstantVariable
     static let introBGPath = "introBg"
     static let cornerRadius : CGFloat = 5
 }
+struct ConstantEnums
+{
+     enum Views{
+        case productDetail
+         case test
+    }
+}

@@ -14,8 +14,6 @@ import AlamofireImage
 
 class ProductVerticalViewController: UIViewController {
     
-
-    
     var tableCount : Int = 0
     var dataArray : [ProductModel] = []
     
@@ -148,9 +146,14 @@ class CustomCell: UICollectionViewCell {
         contentView.addSubview(shorDetail)
         contentView.addSubview(price)
         constrait()
+        likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
     }
 
-
+    @objc func likeButtonClick()
+    {
+        likeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
+        likeButton.tintColor = .red
+    }
   
     
     func constrait()

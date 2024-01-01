@@ -14,53 +14,46 @@ class HomeViewController: UIViewController {
    
     
     let profilButton : UIButton = {
-        
         let profile = UIButton()
         profile.setImage(UIImage(systemName: "person"), for: [])
-        profile.tintColor = .black
+        profile.tintColor = .systemIndigo
         profile.layer.cornerRadius = ConstantVariable.cornerRadius
         profile.layer.borderWidth = 1
+        profile.layer.borderColor  = UIColor.systemIndigo.cgColor
         return profile
     }()
     
     let messageLabel : UILabel = {
-        
         let label = UILabel()
-        label.text = "Welcome"
+        label.text = "Hoş Geldin"
         label.textColor = .black
         label.font = .systemFont(ofSize: 10)
         return label
     }()
     
     let userNameLabel : UILabel = {
-        
         let label  = UILabel()
         label.text = "Ibrahim Ozcelik"
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 14)
         return label
-        
     }()
     
     let notificationButton : UIButton = {
-       
         let button = UIButton()
         button.setImage(UIImage(systemName: "basket" ), for: [])
-        button.tintColor = .black
-        
+        button.tintColor = .systemOrange
         return button
     }()  
     
     let notificationButton2 : UIButton = {
-        
         let button = UIButton()
         button.setImage(UIImage(systemName: "bell" ), for: [])
-        button.tintColor = .black
+        button.tintColor = .systemOrange
         return button
     }()
     
     let notificationButton3 : UIButton = {
-        
         let button = UIButton()
         button.setImage(UIImage(systemName: "star" ), for: [])
         button.tintColor = .black
@@ -68,25 +61,20 @@ class HomeViewController: UIViewController {
     }()
     
     let topView : UIView = {
-       
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()  
     
- 
-    let topViewInfo : UIView = {
-        
+   let topViewInfo : UIView = {
         let view = UIView()
         view.backgroundColor = .purple
         return view
     }()
     
     let topIconsView : UIView = {
-      
         let view = UIView()
         return view
-        
     }()
     
     let searchView : UIView = {
@@ -98,42 +86,28 @@ class HomeViewController: UIViewController {
     }()
     
     let searchButton : UIButton = {
-       
         let button = UIButton()
         button.setImage(UIImage(systemName: "magnifyingglass"), for: [])
-        button.tintColor = .black
+        button.tintColor = .systemOrange
         return button
-        
     }()
     
     let inputField : UITextField = {
-       
         let inputField = UITextField()
         inputField.placeholder = "Arama"
         return inputField
     }()
     
     let containerProductView : UIView = {
-       
         let containerView = UIView()
         return containerView
-        
-    }() 
-    
-    let containerProductDoubleView : UIView = {
-       
-        let containerView = UIView()
-        return containerView
-        
     }()
     
-  
     let containerProductTableView : UIView = {
         let view = UIView()
         return view
     }()
     
-
     let scroolView : UIScrollView = {
         let scroolView = UIScrollView()
         scroolView.showsVerticalScrollIndicator = false
@@ -170,35 +144,28 @@ class HomeViewController: UIViewController {
         searchView.addSubview(searchButton)
         searchView.addSubview(inputField)
         
-        
-        
         contentView.addSubview(topView)
         contentView.addSubview(searchView)
         contentView.addSubview(containerProductView)
-        contentView.addSubview(containerProductDoubleView)
         contentView.addSubview(newsContainer)
         
         scroolView.addSubview(contentView)
         view.addSubview(scroolView)
-       // view.addSubview(containerProductTableView)
         
         ProductService().productServiceRequest(){(result) -> () in
             self.generateHorizontalMenu(result: result)
         }
         
-        
-  
-       /* let productTableView = ProductTableView()
-        productTableView.willMove(toParent: self)
-        containerProductTableView.addSubview(productTableView.view)
-        productTableView.view.frame = containerProductTableView.bounds
-        addChild(productTableView)
-        productTableView.didMove(toParent: self)
-        */
-        
         addConstrait()
         generateNewsView()
-        
+        dismissKeyboard()
+    }
+    
+    func dismissKeyboard()
+    {
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
     }
     
     func generateNewsView()
@@ -215,33 +182,15 @@ class HomeViewController: UIViewController {
     func generateHorizontalMenu(result : [ProductModel])
     {
         let productView = ProductVerticalViewController(tableCount: result.count,dataArray: result)
-            productView.willMove(toParent: self)
+        productView.willMove(toParent: self)
         self.containerProductView.addSubview(productView.view)
         productView.view.frame = self.containerProductView.bounds
         self.addChild(productView)
-            productView.didMove(toParent: self)
-        
-        let productViewDouble = ProductVerticalViewController(tableCount: 2, dataArray: result)
-            productViewDouble.willMove(toParent: self)
-        self.containerProductDoubleView.addSubview(productViewDouble.view)
-        productViewDouble.view.frame = self.containerProductDoubleView.bounds
-        self.addChild(productViewDouble)
-            productViewDouble.didMove(toParent: self)
+        productView.didMove(toParent: self)
     }
-    
-  
-    
-    
     
     func addConstrait()
     {
-        
-       /* containerProductTableView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(100)
-            make.topMargin.equalTo(containerProductView).offset(150)
-        }   */
-        
         contentView.snp.makeConstraints { make in
             make.top.bottom.equalTo(scroolView)
             make.left.right.equalTo(view)
@@ -259,14 +208,7 @@ class HomeViewController: UIViewController {
             make.topMargin.equalTo(newsContainer).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
         }
-        
-        containerProductDoubleView.snp.makeConstraints { make in
-            make.width.equalTo(scroolView)
-            make.height.equalTo(200)
-            make.topMargin.equalTo(newsContainer).offset(500)
-            make.left.equalTo(50)
-        }
-        
+    
         profilButton.snp.makeConstraints { make in
             make.height.width.equalTo(40)
             make.left.equalTo(5)

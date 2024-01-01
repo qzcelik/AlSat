@@ -53,6 +53,11 @@ class ProductDetailViewController: UIViewController {
         return label
     }()
     
+    let similarProductContainer : UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     let productBuyButton : UIButton = {
         let button = UIButton()
         button.setTitle("Satın Al", for: [])
@@ -62,12 +67,22 @@ class ProductDetailViewController: UIViewController {
         return button
     }()
     
+    let similarTitle : UILabel = {
+        let label = UILabel()
+        label.text = "Benzer Ürünler"
+        label.font = .systemFont(ofSize: 18)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .systemIndigo
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
     
-    init(data: ProductModel ) {
+    init(data: ProductModel) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
         uiGenerater()
@@ -85,7 +100,10 @@ class ProductDetailViewController: UIViewController {
         maninView.addSubview(productPriceLabel)
         maninView.addSubview(productLikeButton)
         maninView.addSubview(productBuyButton)
-        
+       
+        maninView.addSubview(similarTitle)
+        maninView.addSubview(similarProductContainer)
+
         view.addSubview(maninView)
         
         productTitleLabel.text = self.data.descriptionShort!
@@ -95,7 +113,30 @@ class ProductDetailViewController: UIViewController {
         AF.request(self.data.imageUrl!).responseImage{response in
             self.productImage.image = UIImage(data: response.data!)
         }
+        
+        productLikeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
+        
         constrait()
+        ProductService().productServiceRequest(){(result) -> () in
+            self.prepareSimilarProductContainer(data: result)
+        }
+        
+    }
+    
+    func prepareSimilarProductContainer(data: [ProductModel])
+    {
+        let similarProducts = ProductVerticalViewController(tableCount: 2, dataArray: data)
+        similarProducts.willMove(toParent: self)
+        self.similarProductContainer.addSubview(similarProducts.view)
+        similarProducts.view.frame = self.similarProductContainer.bounds
+        self.addChild(similarProducts)
+        similarProducts.didMove(toParent: self)
+    }
+    
+    @objc func likeButtonClick()
+    {
+        productLikeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
+        productLikeButton.tintColor = .red
     }
     
     func constrait()
@@ -143,6 +184,19 @@ class ProductDetailViewController: UIViewController {
             make.height.equalTo(50)
             make.topMargin.equalTo(productPriceLabel).offset(50)
             make.centerX.equalToSuperview()
+        }
+        
+        similarTitle.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productBuyButton).offset(60)
+        }
+        
+        similarProductContainer.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.topMargin.equalTo(similarTitle).offset(175)
+            make.leftMargin.rightMargin.equalTo(50)
         }
         
     }

@@ -35,6 +35,7 @@ class TabBarHomeViewController: UIViewController {
         
         for x in 0..<tabBarIcons.count {
             tabBarController.tabBar.items?[x].image = UIImage(systemName: tabBarIcons[x])
+            tabBarController.tabBar.tintColor = .systemOrange
         }
         
         tabBarController.modalPresentationStyle = .fullScreen
