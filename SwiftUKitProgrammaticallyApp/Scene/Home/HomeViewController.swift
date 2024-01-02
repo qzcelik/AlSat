@@ -11,8 +11,6 @@ import Alamofire
 
 class HomeViewController: UIViewController {
     
-   
-    
     let profilButton : UIButton = {
         let profile = UIButton()
         profile.setImage(UIImage(systemName: "person"), for: [])

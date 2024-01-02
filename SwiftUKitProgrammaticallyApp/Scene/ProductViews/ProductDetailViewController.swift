@@ -58,6 +58,8 @@ class ProductDetailViewController: UIViewController {
         return view
     }()
     
+    
+    
     let productBuyButton : UIButton = {
         let button = UIButton()
         button.setTitle("Satın Al", for: [])
@@ -80,13 +82,13 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        uiGenerater()
     }
     
     init(data: ProductModel) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
-        uiGenerater()
-    }
+   }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -100,10 +102,9 @@ class ProductDetailViewController: UIViewController {
         maninView.addSubview(productPriceLabel)
         maninView.addSubview(productLikeButton)
         maninView.addSubview(productBuyButton)
-       
         maninView.addSubview(similarTitle)
         maninView.addSubview(similarProductContainer)
-
+        
         view.addSubview(maninView)
         
         productTitleLabel.text = self.data.descriptionShort!
@@ -116,11 +117,19 @@ class ProductDetailViewController: UIViewController {
         
         productLikeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
         
-        constrait()
+        
         ProductService().productServiceRequest(){(result) -> () in
             self.prepareSimilarProductContainer(data: result)
         }
         
+        productBuyButton.addTarget(self, action: #selector(buyProduct), for: .touchUpInside)
+        
+        constrait()
+    }
+    
+   @objc func buyProduct()
+    {
+        print("product buy")
     }
     
     func prepareSimilarProductContainer(data: [ProductModel])
@@ -195,7 +204,8 @@ class ProductDetailViewController: UIViewController {
         
         similarProductContainer.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.topMargin.equalTo(similarTitle).offset(175)
+            make.height.equalTo(300)
+            make.topMargin.equalTo(similarTitle).offset(20)
             make.leftMargin.rightMargin.equalTo(50)
         }
         
