@@ -13,7 +13,6 @@ import Alamofire
 class ProductDetailViewController: UIViewController {
 
     var data : ProductModel
-    
     let maninView : UIView = {
        let view = UIView()
         return view
@@ -83,6 +82,18 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         uiGenerater()
+        
+       
+    }
+    
+    @objc func backLeft(gesture: UISwipeGestureRecognizer)
+    {
+        self.modalTransitionStyle = .crossDissolve
+        self.dismiss(animated: true, completion: nil)
+        /*let homeView = TabBarHomeViewController()
+        homeView.modalPresentationStyle = .fullScreen
+        homeView.modalTransitionStyle = .crossDissolve
+        present(homeView, animated: true, completion: nil)*/
     }
     
     init(data: ProductModel) {
@@ -123,6 +134,10 @@ class ProductDetailViewController: UIViewController {
         }
         
         productBuyButton.addTarget(self, action: #selector(buyProduct), for: .touchUpInside)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backLeft(gesture:)))
+        swipeRight.direction = .right
+        view.addGestureRecognizer(swipeRight)
         
         constrait()
     }
@@ -211,6 +226,7 @@ class ProductDetailViewController: UIViewController {
         
     }
     
+  
     
   
 

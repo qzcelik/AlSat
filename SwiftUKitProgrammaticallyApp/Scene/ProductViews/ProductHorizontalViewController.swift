@@ -77,9 +77,10 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.present(ProductDetailViewController(data: dataArray[indexPath.item]), animated:true,completion: nil)
+        let productViewController = ProductDetailViewController(data: dataArray[indexPath.item])
+        productViewController.modalPresentationStyle = .fullScreen
+        present(productViewController, animated:true,completion: nil)
     }
-    
 }
 
 
