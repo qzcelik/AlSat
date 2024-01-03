@@ -24,14 +24,16 @@ class TabBarHomeViewController: UIViewController {
         let tabBarController = UITabBarController()
         let VCHome = UINavigationController(rootViewController: HomeViewController())
         let VCProductDetail = UINavigationController(rootViewController: ProductFavViewController())
+        let VCProfil = UINavigationController(rootViewController: ProfilViewController())
         
         VCHome.title = "Home"
         VCProductDetail.title = "Favori"
+        VCProfil.title = "Profil"
         
-        tabBarController.setViewControllers([VCHome,VCProductDetail], animated:false)
+        tabBarController.setViewControllers([VCHome,VCProductDetail,VCProfil], animated:false)
         tabBarController.tabBar.layer.backgroundColor = UIColor.white.cgColor
         
-        let tabBarIcons = ["house","star"]
+        let tabBarIcons = ["house","star","person"]
         
         for x in 0..<tabBarIcons.count {
             tabBarController.tabBar.items?[x].image = UIImage(systemName: tabBarIcons[x])

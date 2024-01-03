@@ -154,9 +154,20 @@ class HomeViewController: UIViewController {
             self.generateHorizontalMenu(result: result)
         }
         
+        notificationButton.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
+        notificationButton2.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
+        
         addConstrait()
         generateNewsView()
         dismissKeyboard()
+    }
+    
+    @objc func notificationScreen()
+    {
+        
+        let alert = UIAlertController(title: "title", message: "did load", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func dismissKeyboard()

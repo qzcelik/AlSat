@@ -22,9 +22,6 @@ class ProductFavViewController: UIViewController {
         view.addSubview(tableViewContainer)
         generateUI()
         contraints()
-        /*let alert = UIAlertController(title: "title", message: "did load", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)*/
     }
     
     override func viewDidAppear(_ animated: Bool) {
