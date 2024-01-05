@@ -21,6 +21,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         view.addSubview(imgV)
         let gesture = UITapGestureRecognizer(target: self, action: #selector(openCamera))
         view.addGestureRecognizer(gesture)
+        constraint()
     }
     
     
@@ -36,9 +37,11 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.editedImage] as? UIImage else { return }
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage  
         self.imgV.image = image
+        picker.dismiss(animated: true, completion: nil)
+        print("TAKE PHOTO")
     }
     
     func constraint()
