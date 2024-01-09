@@ -27,7 +27,7 @@ class MultipartService
             "fileDate": fileDate
         ]
 
-        let url = "https://ibrahimozcelik.net/iosapp/productImage.php"
+        let url = ConstantVariable.baseUrl + "productImage.php"
 
         AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { response in

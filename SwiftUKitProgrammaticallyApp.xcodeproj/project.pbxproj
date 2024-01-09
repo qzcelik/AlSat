@@ -19,6 +19,7 @@
 		10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */; };
 		10AA4B6C2B38355600A72F7D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */; };
 		10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ABF6242B45D27200A32FD2 /* ProfilViewController.swift */; };
+		10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */; };
 		10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B989A32B4C6429000B0E10 /* MultipartService.swift */; };
 		10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9A48F2B447A4F008807C4 /* TestViewController.swift */; };
 		10CA36A12B3E02B00079B251 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA36A02B3E02B00079B251 /* ServiceManager.swift */; };
@@ -57,6 +58,7 @@
 		10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeViewController.swift; sourceTree = "<group>"; };
 		10AA4B6B2B38355600A72F7D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		10ABF6242B45D27200A32FD2 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+		10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10B989A32B4C6429000B0E10 /* MultipartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartService.swift; sourceTree = "<group>"; };
 		10B9A48F2B447A4F008807C4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		10CA36A02B3E02B00079B251 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		10A60FB92B37232F006FEB99 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				10B20BDC2B4DB28D00757AD4 /* Login */,
 				10ABF6232B45D25E00A32FD2 /* Profil */,
 				10CB01492B388CFA00097CD4 /* ProductViews */,
 				10AA4B6D2B38418C00A72F7D /* Intro */,
@@ -216,6 +219,14 @@
 				10ABF6242B45D27200A32FD2 /* ProfilViewController.swift */,
 			);
 			path = Profil;
+			sourceTree = "<group>";
+		};
+		10B20BDC2B4DB28D00757AD4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		10CB01462B38753F00097CD4 /* Constant */ = {
@@ -374,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */,
 				10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */,
 				10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */,
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
