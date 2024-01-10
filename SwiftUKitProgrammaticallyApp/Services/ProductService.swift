@@ -11,7 +11,6 @@ import Alamofire
  
 final class ProductService
 {
-    
     func productServiceRequest(responseItems:@escaping ([ProductModel])->())
     {
         ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + "productGetData.php") {
