@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     let loginLabel : UILabel = {
        let label = UILabel()
@@ -64,14 +64,6 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    let newAccountButton : UIButton = {
-        let button = UIButton()
-        button.setTitle("Yeni Kayıt", for: [])
-        button.tintColor = .black
-        button.setTitleColor(UIColor.white, for: [])
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
@@ -80,7 +72,7 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController
+extension SignUpViewController
 {
     func prepareUI()
     {
@@ -88,19 +80,13 @@ extension LoginViewController
         view.addSubview(userNameTextBox)
         view.addSubview(userPassTextBox)
         view.addSubview(submitButton)
-        view.addSubview(newAccountButton)
+        view.addSubview(userMailTextBox)
         
         submitButton.addTarget(self, action: #selector(loginRequest), for: .touchUpInside)
-        newAccountButton.addTarget(self, action: #selector(newAccount), for: .touchUpInside)
         constraint()
         dismissKeyboard()
     }
-    
-    @objc  func newAccount()
-    {
-        self.present(SignUpViewController(), animated: true)
-    }
-    
+   
     func dismissKeyboard()
     {
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
@@ -141,14 +127,6 @@ extension LoginViewController
             switch result {
             case .success(let loginResponse):
                 print("Login successful. Message: \(loginResponse.message)")
-                if(loginResponse.message == "exists")
-                {
-                    self.present(IntroViewController(), animated: true)
-                }
-                else
-                {
-                    self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
-                }
             case .failure(let error):
                 print("Login failed with error: \(error.localizedDescription)")
             }
@@ -177,21 +155,23 @@ extension LoginViewController
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
             make.topMargin.equalTo(userNameTextBox).offset(50)
+        } 
+        
+        userMailTextBox.snp.makeConstraints { make in
+            make.width.equalTo(200)
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(userPassTextBox).offset(50)
         }
         
         submitButton.snp.makeConstraints { make in
             make.width.equalTo(150)
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
-            make.topMargin.equalTo(userPassTextBox).offset(75)
+            make.topMargin.equalTo(userMailTextBox).offset(75)
         }
         
-        newAccountButton.snp.makeConstraints { make in
-            make.width.equalTo(300)
-            make.height.equalTo(40)
-            make.topMargin.equalTo(submitButton).offset(300)
-            make.centerX.equalToSuperview()
-        }
+    
       
     }
 }

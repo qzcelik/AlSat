@@ -14,7 +14,8 @@
 		10A60FAF2B36FE7A006FEB99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A60FAD2B36FE7A006FEB99 /* LaunchScreen.storyboard */; };
 		10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FB62B36FF63006FEB99 /* HomeViewController.swift */; };
 		10A60FC92B377277006FEB99 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FC82B377277006FEB99 /* NewsView.swift */; };
-		10A7294D2B4F134300EFE1AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7294C2B4F134300EFE1AC /* UserService.swift */; };
+		10A7294D2B4F134300EFE1AC /* ServiceManagerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7294C2B4F134300EFE1AC /* ServiceManagerPost.swift */; };
+		10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A7BA462B50760F00E80863 /* SignUpViewController.swift */; };
 		10A82A1E2B3A030E0005E04B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82A1D2B3A030E0005E04B /* ProductModel.swift */; };
 		10A82A212B3A06F50005E04B /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82A202B3A06F50005E04B /* ProductService.swift */; };
 		10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */; };
@@ -23,7 +24,7 @@
 		10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */; };
 		10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B989A32B4C6429000B0E10 /* MultipartService.swift */; };
 		10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9A48F2B447A4F008807C4 /* TestViewController.swift */; };
-		10CA36A12B3E02B00079B251 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA36A02B3E02B00079B251 /* ServiceManager.swift */; };
+		10CA36A12B3E02B00079B251 /* ServiceManagerGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA36A02B3E02B00079B251 /* ServiceManagerGet.swift */; };
 		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
 		10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01472B3875F800097CD4 /* ConstantVariable.swift */; };
 		10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB014A2B388D3200097CD4 /* ProductTableView.swift */; };
@@ -54,7 +55,8 @@
 		10A60FB02B36FE7A006FEB99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10A60FB62B36FF63006FEB99 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		10A60FC82B377277006FEB99 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
-		10A7294C2B4F134300EFE1AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		10A7294C2B4F134300EFE1AC /* ServiceManagerPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerPost.swift; sourceTree = "<group>"; };
+		10A7BA462B50760F00E80863 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10A82A1D2B3A030E0005E04B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		10A82A202B3A06F50005E04B /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		10AA4B692B3833D400A72F7D /* TabBarHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarHomeViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10B989A32B4C6429000B0E10 /* MultipartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartService.swift; sourceTree = "<group>"; };
 		10B9A48F2B447A4F008807C4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		10CA36A02B3E02B00079B251 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		10CA36A02B3E02B00079B251 /* ServiceManagerGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerGet.swift; sourceTree = "<group>"; };
 		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		10CB01472B3875F800097CD4 /* ConstantVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariable.swift; sourceTree = "<group>"; };
 		10CB014A2B388D3200097CD4 /* ProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableView.swift; sourceTree = "<group>"; };
@@ -185,9 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				10A82A202B3A06F50005E04B /* ProductService.swift */,
-				10CA36A02B3E02B00079B251 /* ServiceManager.swift */,
+				10CA36A02B3E02B00079B251 /* ServiceManagerGet.swift */,
 				10B989A32B4C6429000B0E10 /* MultipartService.swift */,
-				10A7294C2B4F134300EFE1AC /* UserService.swift */,
+				10A7294C2B4F134300EFE1AC /* ServiceManagerPost.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */,
+				10A7BA462B50760F00E80863 /* SignUpViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -394,14 +397,15 @@
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
 				10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */,
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
-				10CA36A12B3E02B00079B251 /* ServiceManager.swift in Sources */,
+				10CA36A12B3E02B00079B251 /* ServiceManagerGet.swift in Sources */,
 				10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */,
 				10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */,
 				10A82A212B3A06F50005E04B /* ProductService.swift in Sources */,
 				10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
-				10A7294D2B4F134300EFE1AC /* UserService.swift in Sources */,
+				10A7294D2B4F134300EFE1AC /* ServiceManagerPost.swift in Sources */,
+				10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */,
 				10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */,
 				10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */,
 				10A82A1E2B3A030E0005E04B /* ProductModel.swift in Sources */,
