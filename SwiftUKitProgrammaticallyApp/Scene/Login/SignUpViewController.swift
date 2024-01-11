@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
 
     let loginLabel : UILabel = {
        let label = UILabel()
-        label.text = "Giriş"
+        label.text = "Yeni Kayıt"
         label.font = .systemFont(ofSize: 50)
         label.textColor = .white
         label.textAlignment = .center
@@ -98,12 +98,14 @@ extension SignUpViewController
     {
         let username : String = userNameTextBox.text!
         let password : String = userPassTextBox.text!
+        let mail : String = userMailTextBox.text!
         
-        if(username != "" && password != "")
+        if(username != "" && password != "" && mail != "")
         {
             let parameters: [String: Any] = [
                 "username": username,
-                "userpass": password
+                "userpass": password,
+                "mail" : mail
             ]
             
             userRequest(parameters: parameters)
@@ -123,17 +125,24 @@ extension SignUpViewController
     
     func userRequest(parameters : [String:Any])
     {
-        ServiceManagerPost().request(parameters: parameters, connectionService: "userCheck.php" ) { result in
+        ServiceManagerPost().request(parameters: parameters, connectionService: "userAdd.php" ) { result in
             switch result {
             case .success(let loginResponse):
                 print("Login successful. Message: \(loginResponse.message)")
+                if(loginResponse.message == "exists")
+                {
+                    self.warningPanel(title: "Uyarı", message: "Kullanıcı Mevcut")
+                }
+                else
+                {
+                    self.present(IntroViewController(), animated: true)
+                }
             case .failure(let error):
                 print("Login failed with error: \(error.localizedDescription)")
             }
         }
     }
-    
-    
+
     func constraint()
     {
         loginLabel.snp.makeConstraints { make in
