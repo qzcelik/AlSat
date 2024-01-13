@@ -11,36 +11,75 @@ import SnapKit
 
 class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
-    var imgV : UIImageView = {
+    let imgV : UIImageView = {
        let image = UIImageView()
         return image
     }()
     
+    let productTitle : UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Ürün Başlık Girin"
+        textField.textAlignment = .center
+        textField.textColor = .white
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = ConstantVariable.cornerRadius
+        return textField
+    }()
+    
+    let productInfo : UITextView = {
+        let textField = UITextView()
+        textField.textAlignment = .center
+        textField.textColor = .systemBackground
+        textField.layer.borderWidth = 2
+        textField.textColor = .black
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = ConstantVariable.cornerRadius
+        return textField
+    }()
+    
+    let productPrice : UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Ürün Fiyat Girin"
+        textField.textAlignment = .center
+        textField.textColor = .white
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = ConstantVariable.cornerRadius
+        return textField
+    }()
+    
     var sendImage : UIButton = {
         let button = UIButton()
-        button.setTitle("Send", for: [])
-        button.backgroundColor = .red
+        button.setTitle("Ürün Ekle", for: [])
+        button.backgroundColor = .systemRed
         return button
     }()
     
+    let takePhoto : UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(systemName: "camera"), for: [])
+        return button
+    }()
     var multipartRequest = MultipartService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemOrange
         view.addSubview(imgV)
         view.addSubview(sendImage)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(openCamera))
-        view.addGestureRecognizer(gesture)
-        constraint()
+        view.addSubview(productTitle)
+        view.addSubview(productInfo)
+        view.addSubview(productPrice)
+        view.addSubview(takePhoto)
         
+        constraint()
         sendImage.addTarget(self, action: #selector(sendImageToServer), for: .touchUpInside)
+        takePhoto.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
     }
     
     @objc func sendImageToServer()
     {
-        
-        
             let fileName = "example"
             let fileDate = "2024-01-08"
         MultipartService().uploadImageToServer(image: imgV.image!, fileName: fileName, fileDate: fileDate) { result in
@@ -51,7 +90,6 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
                     print("Image upload failed with error: \(error.localizedDescription)")
                 }
         }
-        
     }
     
     
@@ -79,13 +117,45 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
             make.width.height.equalTo(300)
             make.center.equalToSuperview()
         }
-        
-        sendImage.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
+      
+        productTitle.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(40)
             make.centerX.equalToSuperview()
-            make.topMargin.equalTo(100)
+            make.topMargin.equalToSuperview().offset(50)
+            
         }
         
+        productInfo.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(150)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productTitle).offset(50)
+            
+        } 
+        
+        productPrice.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productInfo).offset(175)
+            
+        }
+        
+        takePhoto.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productPrice).offset(50)
+        }
+        
+        sendImage.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productPrice).offset(100)
+        }
+        
+     
     }
 
 }

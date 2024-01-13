@@ -23,7 +23,7 @@ class IntroViewController: UIViewController {
     
     let introLabel : UILabel = {
         let label = UILabel()
-        label.text = "Uygulama Giriş Yazısı"
+        label.text = "Uygulama Tanıtım Yazısı"
         label.font = .systemFont(ofSize: 20)
         label.textAlignment = .center
         label.textColor = .white
