@@ -118,11 +118,11 @@ class ProductDetailViewController: UIViewController {
         
         view.addSubview(maninView)
         
-        productTitleLabel.text = self.data.descriptionShort!
-        productDescriptionLabel.text = self.data.descriptionLong!
-        productPriceLabel.text = "\(self.data.price!) TL"
+        productTitleLabel.text = self.data.fileName!
+        productDescriptionLabel.text = self.data.productDescription!
+        productPriceLabel.text = "\(self.data.productPrice!) TL"
         
-        AF.request(self.data.imageUrl!).responseImage{response in
+        AF.request(self.data.filePath!).responseImage{response in
             self.productImage.image = UIImage(data: response.data!)
         }
         

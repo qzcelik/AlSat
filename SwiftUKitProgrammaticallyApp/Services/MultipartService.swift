@@ -11,20 +11,22 @@ import Alamofire
 class MultipartService
 {
     
-    func uploadImageToServer(image: UIImage, fileName: String, fileDate: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func uploadImageToServer(image: UIImage, fileName: String, productTitle: String, productDescription: String, productPrice: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             completion(.failure(NSError(domain: "ImageUploadError", code: 500, userInfo: [NSLocalizedDescriptionKey: "Couldn't convert image to data"])))
             return
         }
 
         let base64String = imageData.base64EncodedString()
-        let filePath = "\(fileName)_\(fileDate).jpg"
+        let filePath = "\(fileName).jpg"
 
         let parameters: [String: Any] = [
             "filePath": filePath,
             "file": base64String,
             "fileName": fileName,
-            "fileDate": fileDate
+            "productTitle": productTitle,
+            "productDescription": productDescription,
+            "productPrice": productPrice,
         ]
 
         let url = ConstantVariable.baseUrl + "productImage.php"

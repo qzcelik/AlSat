@@ -10,11 +10,11 @@ import UIKit
 
 struct ProductModel : Codable
 {
-    var title : String?
-    var descriptionShort : String?
-    var descriptionLong : String?
-    var imageUrl : String?
-    var price : String?
+    var filePath : String?
+    var fileName : String?
+    var productTitle : String?
+    var productDescription : String?
+    var productPrice : String?
 }
 
 

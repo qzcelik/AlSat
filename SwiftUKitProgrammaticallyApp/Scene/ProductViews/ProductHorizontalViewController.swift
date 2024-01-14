@@ -89,13 +89,13 @@ class CustomCell: UICollectionViewCell {
     var data: ProductModel? {
         didSet {
             guard let data = data else { return }
-            let pImage = AF.request(data.imageUrl!).responseImage { response in
+            let pImage = AF.request(data.filePath!).responseImage { response in
                 self.producHorizontalImage.image = UIImage(data: response.data!)
             }
           
-            productTitle.text = data.title
-            shorDetail.text = data.descriptionShort
-            price.text = "\(String(describing: data.price!)) TL"
+            productTitle.text = data.productTitle
+            shorDetail.text = data.fileName
+            price.text = "\(String(describing: data.productPrice!)) TL"
         }
     }
     

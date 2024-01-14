@@ -56,39 +56,68 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         return button
     }()
     
-    let takePhoto : UIButton = {
-       let button = UIButton()
-        button.setImage(UIImage(systemName: "camera"), for: [])
-        return button
-    }()
+   
     var multipartRequest = MultipartService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
+    }
+    
+    func prepareUI()
+    {
         view.backgroundColor = .systemOrange
         view.addSubview(imgV)
         view.addSubview(sendImage)
         view.addSubview(productTitle)
         view.addSubview(productInfo)
         view.addSubview(productPrice)
-        view.addSubview(takePhoto)
+ 
+        
+        let photoClick = UITapGestureRecognizer(target: self, action: #selector(openCamera))
+        
+        imgV.image = UIImage(systemName: "camera")
+        imgV.addGestureRecognizer(photoClick)
+        imgV.isUserInteractionEnabled = true
         
         constraint()
-        sendImage.addTarget(self, action: #selector(sendImageToServer), for: .touchUpInside)
-        takePhoto.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
+        dismissKeyboard()
+        
+        sendImage.addTarget(self, action: #selector(sendDataToServer), for: .touchUpInside)
+ 
     }
     
-    @objc func sendImageToServer()
+    func warningPanel(title: String, message : String)
     {
-            let fileName = "example"
-            let fileDate = "2024-01-08"
-        MultipartService().uploadImageToServer(image: imgV.image!, fileName: fileName, fileDate: fileDate) { result in
-                switch result {
-                case .success(let message):
-                    print("Image uploaded successfully. Message: \(message)")
-                case .failure(let error):
-                    print("Image upload failed with error: \(error.localizedDescription)")
-                }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func dismissKeyboard()
+    {
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+    }
+    
+    @objc func sendDataToServer()
+    {
+        let fileName : String? = productTitle.text
+        if(productTitle.text != "" && productInfo.text != "" && productPrice.text != "" && imgV.image != nil)
+        {
+            MultipartService().uploadImageToServer(image: imgV.image!, fileName: fileName!, productTitle: productTitle.text!, productDescription: productInfo.text, productPrice: productPrice.text!) { result in
+                    switch result {
+                    case .success(let message):
+                        print("Image uploaded successfully. Message: \(message)")
+                    case .failure(let error):
+                        print("Image upload failed with error: \(error.localizedDescription)")
+                    }
+            }
+        }
+        else
+        {
+            warningPanel(title: "Uyarı", message: "Boş Alanları Doldurun")
         }
     }
     
@@ -114,15 +143,17 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     {
         imgV.snp.makeConstraints {make in
             
-            make.width.height.equalTo(300)
-            make.center.equalToSuperview()
+            make.width.equalTo(300)
+            make.height.equalTo(250)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalToSuperview().offset(25)
         }
-      
-        productTitle.snp.makeConstraints { make in
+  
+      productTitle.snp.makeConstraints { make in
             make.width.equalTo(300)
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
-            make.topMargin.equalToSuperview().offset(50)
+            make.topMargin.equalTo(imgV).offset(250)
             
         }
         
@@ -142,12 +173,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
             
         }
         
-        takePhoto.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
-            make.centerX.equalToSuperview()
-            make.topMargin.equalTo(productPrice).offset(50)
-        }
-        
+    
         sendImage.snp.makeConstraints { make in
             make.width.equalTo(100)
             make.height.equalTo(40)
