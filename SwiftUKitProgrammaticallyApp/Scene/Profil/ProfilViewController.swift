@@ -56,7 +56,8 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         return button
     }()
     
-   
+    let loadingIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    
     var multipartRequest = MultipartService()
     
     override func viewDidLoad() {
@@ -72,13 +73,14 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         view.addSubview(productTitle)
         view.addSubview(productInfo)
         view.addSubview(productPrice)
- 
+        view.addSubview(loadingIndicator)
         
         let photoClick = UITapGestureRecognizer(target: self, action: #selector(openCamera))
         
         imgV.image = UIImage(systemName: "camera")
         imgV.addGestureRecognizer(photoClick)
         imgV.isUserInteractionEnabled = true
+        loadingIndicator.hidesWhenStopped = true
         
         constraint()
         dismissKeyboard()
@@ -103,6 +105,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     @objc func sendDataToServer()
     {
+        self.loadingIndicator.startAnimating()
         let fileName : String? = productTitle.text
         if(productTitle.text != "" && productInfo.text != "" && productPrice.text != "" && imgV.image != nil)
         {
@@ -110,6 +113,11 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
                     switch result {
                     case .success(let message):
                         print("Image uploaded successfully. Message: \(message)")
+                        self.loadingIndicator.stopAnimating()
+                        self.productTitle.text = ""
+                        self.productInfo.text = ""
+                        self.productPrice.text = ""
+                        self.imgV.image = UIImage(systemName: "camera")
                     case .failure(let error):
                         print("Image upload failed with error: \(error.localizedDescription)")
                     }
@@ -141,6 +149,11 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     func constraint()
     {
+        
+        loadingIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(50)
+        }
         imgV.snp.makeConstraints {make in
             
             make.width.equalTo(300)
