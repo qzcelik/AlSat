@@ -190,7 +190,7 @@ class HomeViewController: UIViewController {
     
     func generateHorizontalMenu(result : [ProductModel])
     {
-        let productView = ProductVerticalViewController(tableCount: result.count,dataArray: result)
+        let productView = ProductVerticalViewController(tableCount: 5,dataArray: result)
         productView.willMove(toParent: self)
         self.containerProductView.addSubview(productView.view)
         productView.view.frame = self.containerProductView.bounds

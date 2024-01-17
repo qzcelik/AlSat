@@ -121,10 +121,11 @@ class ProductAddViewController: UIViewController, UIImagePickerControllerDelegat
     
     @objc func sendDataToServer()
     {
-        self.loadingIndicator.startAnimating()
+        
         let fileName : String? = productTitle.text
         if(productTitle.text != "" && productInfo.text != "" && productPrice.text != "" && imgV.image != nil)
         {
+            self.loadingIndicator.startAnimating()
             MultipartService().uploadImageToServer(image: imgV.image!, fileName: fileName!, productTitle: productTitle.text!, productDescription: productInfo.text, productPrice: productPrice.text!) { result in
                     switch result {
                     case .success(let message):
