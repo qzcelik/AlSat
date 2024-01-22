@@ -117,11 +117,15 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     func generateNewProductAddView()
     {
-        productAddViewController.willMove(toParent: self)
-        self.productAddContainer.addSubview(productAddViewController.view)
-        productAddViewController.view.frame = self.productAddContainer.bounds
-        self.addChild(productAddViewController)
-        productAddViewController.didMove(toParent: self)
+        if(self.productAddContainer.subviews.isEmpty)
+        { 
+            productAddViewController.willMove(toParent: self)
+            self.productAddContainer.addSubview(productAddViewController.view)
+            productAddViewController.view.frame = self.productAddContainer.bounds
+            self.addChild(productAddViewController)
+            productAddViewController.didMove(toParent: self)
+        }
+       
     }
     
  
