@@ -57,6 +57,10 @@ class ProductAddViewController: UIViewController, UIImagePickerControllerDelegat
        let view = UIView()
         view.backgroundColor = .systemOrange
         view.layer.cornerRadius = ConstantVariable.cornerRadius
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 5
         return view
     }()
     
@@ -77,9 +81,11 @@ class ProductAddViewController: UIViewController, UIImagePickerControllerDelegat
         prepareUI()
     }
     
+    weak var delegate : ProductDelegate?
+    
     func prepareUI()
     {
-        view.backgroundColor = .white
+        
         view.addSubview(cardView)
         cardView.addSubview(imgV)
         cardView.addSubview(productTitle)
@@ -148,7 +154,8 @@ class ProductAddViewController: UIViewController, UIImagePickerControllerDelegat
     
     @objc func closeView()
     {
-        view.isHidden = true
+        delegate?.productAddViewVisibility(visiblity: true)
+       
     }
     
     @objc func openCamera()

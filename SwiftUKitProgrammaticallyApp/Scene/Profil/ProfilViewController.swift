@@ -9,11 +9,17 @@ import UIKit
 import SnapKit
 
  
-class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, ProductDelegate {
+   
+    
+    func productAddViewVisibility(visiblity: Bool) {
+        self.productAddContainer.isHidden = visiblity
+  }
+    
   
     let productAddContainer : UIView = {
        let view = UIView()
-        return view
+       return view
         
     }()
     
@@ -32,49 +38,115 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
        return label
     }()
     
+    let messageButton : UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "message"), for: [])
+        button.tintColor = .white
+        return button
+    }()
+    
+    let messageLabel : UILabel = {
+       let label = UILabel()
+        label.text = "Mesaj"
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .white
+       return label
+    }()
+    
+    let messageView : UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemOrange
+        return view
+    }()
+    
     let productAddView : UIView = {
         let view = UIView()
         view.backgroundColor = .systemOrange
         return view
     }()
     
+    let viewProfil : UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemOrange
+        return view
+    }()
+    
+    let profilPhoto : UIImageView = {
+      let image = UIImageView()
+        image.image = UIImage(systemName: "person.crop.circle.fill")
+        image.tintColor = .white
+       
+        image.layer.cornerRadius = 100
+      return image
+    }()
+    
+    let productAddViewController = ProductAddViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
     }
     
+ 
+
+    
     func prepareUI()
     {
+        productAddViewController.delegate = self
         title = "Profil"
         view.backgroundColor = .white
+        
+        messageView.addSubview(messageLabel)
+        messageView.addSubview(messageButton)
+        
         productAddView.addSubview(addProductButton)
         productAddView.addSubview(addProductLabel)
+        viewProfil.addSubview(profilPhoto)
+        
+        view.addSubview(viewProfil)
         view.addSubview(productAddView)
+        view.addSubview(messageView)
         view.addSubview(productAddContainer)
+       
 
         addProductButton.addTarget(self, action: #selector(openAddProductView), for: .touchUpInside)
         constraint()
     }
     
+
+    
     func generateNewProductAddView()
     {
-        let productAddView = ProductAddViewController()
-        productAddView.willMove(toParent: self)
-        self.productAddContainer.addSubview(productAddView.view)
-        productAddView.view.frame = self.productAddContainer.bounds
-        self.addChild(productAddView)
-        productAddView.didMove(toParent: self)
+        productAddViewController.willMove(toParent: self)
+        self.productAddContainer.addSubview(productAddViewController.view)
+        productAddViewController.view.frame = self.productAddContainer.bounds
+        self.addChild(productAddViewController)
+        productAddViewController.didMove(toParent: self)
     }
     
  
     
     @objc func openAddProductView()
     {
+        self.productAddContainer.isHidden = false
         generateNewProductAddView()
     }
  
     func constraint()
     {
+        viewProfil.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(300)
+            make.centerX.equalToSuperview()
+            make.topMargin.equalToSuperview()
+        }
+        
+        profilPhoto.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalToSuperview()
+            make.bottomMargin.equalToSuperview().offset(-20)
+        }
+        
         productAddContainer.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(500)
@@ -84,8 +156,28 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         productAddView.snp.makeConstraints { make in
             make.width.equalTo(130)
             make.height.equalTo(50)
-            make.topMargin.equalToSuperview().offset(20)
-            make.leftMargin.equalToSuperview().offset(20)
+            make.topMargin.equalTo(viewProfil).offset(225)
+            make.leftMargin.equalTo(viewProfil).offset(20)
+        }
+        
+        messageView.snp.makeConstraints { make in
+            make.width.equalTo(130)
+            make.height.equalTo(50)
+            make.topMargin.equalTo(viewProfil).offset(225)
+            make.leftMargin.equalTo(productAddView).offset(150)
+        }
+        
+        messageLabel.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(40)
+            make.leftMargin.equalTo(messageButton).offset(52)
+            make.centerY.equalTo(messageButton)
+        }
+        
+        messageButton.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.topMargin.equalToSuperview()
+            make.leftMargin.equalToSuperview()
         }
         
         addProductButton.snp.makeConstraints { make in

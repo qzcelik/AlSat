@@ -24,6 +24,7 @@
 		10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */; };
 		10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B989A32B4C6429000B0E10 /* MultipartService.swift */; };
 		10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9A48F2B447A4F008807C4 /* TestViewController.swift */; };
+		10BA7A572B5EEFED00B556C6 /* ProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA7A562B5EEFED00B556C6 /* ProductDelegate.swift */; };
 		10C877FE2B56F81300382EF0 /* ProductAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C877FD2B56F81300382EF0 /* ProductAddViewController.swift */; };
 		10CA36A12B3E02B00079B251 /* ServiceManagerGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA36A02B3E02B00079B251 /* ServiceManagerGet.swift */; };
 		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
@@ -66,6 +67,7 @@
 		10B20BDD2B4DB2A900757AD4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10B989A32B4C6429000B0E10 /* MultipartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartService.swift; sourceTree = "<group>"; };
 		10B9A48F2B447A4F008807C4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		10BA7A562B5EEFED00B556C6 /* ProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDelegate.swift; sourceTree = "<group>"; };
 		10C877FD2B56F81300382EF0 /* ProductAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewController.swift; sourceTree = "<group>"; };
 		10CA36A02B3E02B00079B251 /* ServiceManagerGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerGet.swift; sourceTree = "<group>"; };
 		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		10A60FA12B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */ = {
 			isa = PBXGroup;
 			children = (
+				10BA7A552B5EEF3200B556C6 /* Protocols */,
 				10A82A1F2B3A06A60005E04B /* Models */,
 				10A82A1C2B3A02EC0005E04B /* Services */,
 				10A60FBC2B37236D006FEB99 /* Support */,
@@ -235,6 +238,14 @@
 				10A7BA462B50760F00E80863 /* SignUpViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		10BA7A552B5EEF3200B556C6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				10BA7A562B5EEFED00B556C6 /* ProductDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		10CB01462B38753F00097CD4 /* Constant */ = {
@@ -394,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BA7A572B5EEFED00B556C6 /* ProductDelegate.swift in Sources */,
 				10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */,
 				10C877FE2B56F81300382EF0 /* ProductAddViewController.swift in Sources */,
 				10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */,
@@ -557,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4X8MB824BH;
@@ -575,6 +588,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.story.SwiftUKitProgrammaticallyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4X8MB824BH;
@@ -605,6 +620,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.story.SwiftUKitProgrammaticallyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
