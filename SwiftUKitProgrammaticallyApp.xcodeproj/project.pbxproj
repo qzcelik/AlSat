@@ -30,6 +30,7 @@
 		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
 		10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01472B3875F800097CD4 /* ConstantVariable.swift */; };
 		10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB014A2B388D3200097CD4 /* ProductTableView.swift */; };
+		10D6234E2B61A1B2002BEF27 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D6234D2B61A1B2002BEF27 /* UserModel.swift */; };
 		10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */; };
 		9BE49B918C52B83F4986575B /* Pods_SwiftUKitProgrammaticallyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD10894E008745096D8109F /* Pods_SwiftUKitProgrammaticallyApp.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		10CB01472B3875F800097CD4 /* ConstantVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariable.swift; sourceTree = "<group>"; };
 		10CB014A2B388D3200097CD4 /* ProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableView.swift; sourceTree = "<group>"; };
+		10D6234D2B61A1B2002BEF27 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10D66D0D2B389B8600984844 /* ProductHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHorizontalViewController.swift; sourceTree = "<group>"; };
 		75156DCBF0EF0B5FDD2807BF /* Pods-SwiftUKitProgrammaticallyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUKitProgrammaticallyApp.release.xcconfig"; path = "Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp.release.xcconfig"; sourceTree = "<group>"; };
 		843FC8BF359627061842283D /* Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUKitProgrammaticallyApp/Pods-SwiftUKitProgrammaticallyApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				10A82A1D2B3A030E0005E04B /* ProductModel.swift */,
+				10D6234D2B61A1B2002BEF27 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
 				10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */,
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
+				10D6234E2B61A1B2002BEF27 /* UserModel.swift in Sources */,
 				10CA36A12B3E02B00079B251 /* ServiceManagerGet.swift in Sources */,
 				10CB014B2B388D3200097CD4 /* ProductTableView.swift in Sources */,
 				10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */,

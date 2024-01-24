@@ -1,7 +1,7 @@
 import Alamofire
 
 struct LoginResponse: Decodable {
-    let message: String
+    let message : String
 }
 class ServiceManagerPost
 {

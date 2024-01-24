@@ -141,15 +141,23 @@ extension LoginViewController
             switch result {
             case .success(let loginResponse):
                 print("Login successful. Message: \(loginResponse.message)")
-                if(loginResponse.message == "exists")
-                {
-                    self.present(IntroViewController(), animated: true)
+     
+                if let jsonData = loginResponse.message.data(using: .utf8) {
+                    do {
+                        let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
+                        if(user.id != "0")
+                        {
+                            self.present(IntroViewController(), animated: true)
+                        }
+                        else
+                        {
+                            self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
+                        }
+                    } catch {
+                        print("JSON decode hatası: \(error.localizedDescription)")
+                    }
                 }
-                else
-                {
-                    self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
-                }
-            case .failure(let error):
+             case .failure(let error):
                 print("Login failed with error: \(error.localizedDescription)")
             }
         }
