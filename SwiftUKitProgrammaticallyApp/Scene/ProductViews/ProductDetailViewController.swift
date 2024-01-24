@@ -92,7 +92,7 @@ class ProductDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         /*let homeView = TabBarHomeViewController()
         homeView.modalPresentationStyle = .fullScreen
-        homeView.modalTransitionStyle = .crossDissolve
+        homeView.modalTransitionStyle = .crossDissolvefa
         present(homeView, animated: true, completion: nil)*/
     }
     

@@ -71,6 +71,11 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         return view
     }()
     
+    let addedProductContainer : UIView = {
+       let view = UIView()
+       return view
+    }()
+    
     let profilPhoto : UIImageView = {
       let image = UIImageView()
         image.image = UIImage(systemName: "person.crop.circle.fill")
@@ -103,16 +108,32 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         productAddView.addSubview(addProductLabel)
         viewProfil.addSubview(profilPhoto)
         
+        view.addSubview(addedProductContainer)
         view.addSubview(viewProfil)
         view.addSubview(productAddView)
         view.addSubview(messageView)
         view.addSubview(productAddContainer)
+        
        
-
+        self.productAddContainer.isHidden = true
         addProductButton.addTarget(self, action: #selector(openAddProductView), for: .touchUpInside)
         constraint()
+        generateProductList()
     }
     
+    func generateProductList()
+      {
+          ProductService().productServiceRequest(){(result) -> () in
+     
+              let productTableView = ProductTableView(prodcutTable: result, viewController: ConstantEnums.Views.productDetail)
+              productTableView.willMove(toParent: self)
+              self.addedProductContainer.addSubview(productTableView.view)
+              productTableView.view.frame = self.addedProductContainer.bounds
+              self.addChild(productTableView)
+              productTableView.didMove(toParent: self)
+         
+          }
+      }
 
     
     func generateNewProductAddView()
@@ -161,7 +182,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
             make.width.equalTo(130)
             make.height.equalTo(50)
             make.topMargin.equalTo(viewProfil).offset(225)
-            make.leftMargin.equalTo(viewProfil).offset(20)
+            make.leftMargin.equalTo(viewProfil).offset(60)
         }
         
         messageView.snp.makeConstraints { make in
@@ -195,6 +216,13 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
             make.height.equalTo(40)
             make.leftMargin.equalTo(addProductButton).offset(52)
             make.centerY.equalTo(addProductButton)
+        }
+        
+        addedProductContainer.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(500)
+            make.topMargin.equalTo(messageView).offset(75)
+            make.centerX.equalToSuperview()
         }
   
     }
