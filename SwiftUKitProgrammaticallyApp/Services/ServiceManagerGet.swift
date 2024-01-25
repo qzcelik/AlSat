@@ -14,7 +14,7 @@ final class ServiceManagerGet
 
 extension ServiceManagerGet
 {
-    func serviceManagerRequest <T> (url: String, responseItems:@escaping ([T])->()) where T: Codable
+    func serviceManagerRequest <T> (url: String, parameters : [String : Any]?, responseItems:@escaping ([T])->()) where T: Codable
     {
         let decoder : JSONDecoder = {
             let decoder = JSONDecoder()
@@ -22,7 +22,7 @@ extension ServiceManagerGet
             return decoder
         }()
         
-        AF.request(url).validate(statusCode: 200..<300).responseString(completionHandler: {str in
+        AF.request(url,method: .post, parameters: parameters).validate(statusCode: 200..<300).responseString(completionHandler: {str in
                 print("str", str)
         }).responseDecodable(of: [T].self,decoder: decoder){
             response in

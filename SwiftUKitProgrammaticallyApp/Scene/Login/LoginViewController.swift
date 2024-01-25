@@ -72,6 +72,8 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+   static var user : UserModel! 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
@@ -137,32 +139,35 @@ extension LoginViewController
     
     func userRequest(parameters : [String:Any])
     {
-        ServiceManagerPost().request(parameters: parameters, connectionService: "userCheck.php" ) { result in
+        ServiceManagerPost().request(parameters: parameters, connectionService: "userCheck.php" ) { [self] result in
             switch result {
             case .success(let loginResponse):
                 print("Login successful. Message: \(loginResponse.message)")
-     
-                if let jsonData = loginResponse.message.data(using: .utf8) {
-                    do {
-                        let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
-                        if(user.id != "0")
-                        {
-                            self.present(IntroViewController(), animated: true)
-                        }
-                        else
-                        {
-                            self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
-                        }
-                    } catch {
-                        print("JSON decode hatası: \(error.localizedDescription)")
-                    }
-                }
-             case .failure(let error):
+                userCheck(loginResponse: loginResponse.message)
+            case .failure(let error):
                 print("Login failed with error: \(error.localizedDescription)")
             }
         }
     }
     
+    func userCheck(loginResponse : String)
+    {
+        if let jsonData = loginResponse.data(using: .utf8) {
+            do {
+                LoginViewController.user = try JSONDecoder().decode(UserModel.self, from: jsonData)
+                if(LoginViewController.user?.id != "0")
+                {
+                    self.present(IntroViewController(), animated: true)
+                }
+                else
+                {
+                    self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
+                }
+            } catch {
+                print("JSON decode hatası: \(error.localizedDescription)")
+            }
+        }
+    }
     
     func constraint()
     {

@@ -123,16 +123,14 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     func generateProductList()
       {
-          ProductService().productServiceRequest(){(result) -> () in
-     
+          ProductMyDataService().productServiceRequest(){(result) -> () in
               let productTableView = ProductTableView(prodcutTable: result, viewController: ConstantEnums.Views.productDetail)
               productTableView.willMove(toParent: self)
               self.addedProductContainer.addSubview(productTableView.view)
               productTableView.view.frame = self.addedProductContainer.bounds
               self.addChild(productTableView)
               productTableView.didMove(toParent: self)
-         
-          }
+         }
       }
 
     

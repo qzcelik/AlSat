@@ -1,22 +1,24 @@
 //
-//  ProductService.swift
+//  ProductMyDataService.swift
 //  SwiftUKitProgrammaticallyApp
 //
-//  Created by ibrahim özçelik on 25.12.2023.
+//  Created by ibrahim özçelik on 25.01.2024.
 //
-
+ 
 import Foundation
 import Alamofire
 
  
-final class ProductService
+final class ProductMyDataService
 {
     func productServiceRequest(responseItems:@escaping ([ProductModel])->())
     {
+        
         let parameters: [String: Any] = [
-            "userId" : (Any).self
+            "userId" : LoginViewController.user.id! as Any
         ]
-        ServiceManagerGet.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + "productGetData.php",parameters: parameters) {
+        
+        ServiceManagerGet.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + "productGetMyData.php", parameters: parameters) {
             (productModelList: [ProductModel]) -> () in
             responseItems(productModelList)
         }

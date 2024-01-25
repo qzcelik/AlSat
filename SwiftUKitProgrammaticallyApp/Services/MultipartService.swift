@@ -27,6 +27,7 @@ class MultipartService
             "productTitle": productTitle,
             "productDescription": productDescription,
             "productPrice": productPrice,
+            "userId" : LoginViewController.user.id! as Any
         ]
 
         let url = ConstantVariable.baseUrl + "productImage.php"
