@@ -123,8 +123,12 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     func generateProductList()
       {
-          ProductMyDataService().productServiceRequest(){(result) -> () in
-              let productTableView = ProductTableView(prodcutTable: result, viewController: ConstantEnums.Views.productDetail)
+          let parameter  : [String:Any] = [
+            "userId" : LoginViewController.user.id! as Any
+        ]
+       
+          ProductService().request(url : "productGetMyData.php",parameters:parameter){(result) -> () in
+              let productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])! , viewController: ConstantEnums.Views.productDetail)
               productTableView.willMove(toParent: self)
               self.addedProductContainer.addSubview(productTableView.view)
               productTableView.view.frame = self.addedProductContainer.bounds

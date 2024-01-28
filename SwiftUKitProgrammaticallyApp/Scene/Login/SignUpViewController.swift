@@ -125,21 +125,19 @@ extension SignUpViewController
     
     func userRequest(parameters : [String:Any])
     {
-        ServiceManagerPost().request(parameters: parameters, connectionService: "userAdd.php" ) { result in
-            switch result {
-            case .success(let loginResponse):
-                print("Login successful. Message: \(loginResponse.message)")
-                if(loginResponse.message == "exists")
-                {
-                    self.warningPanel(title: "Uyarı", message: "Kullanıcı Mevcut")
-                }
-                else
-                {
-                    self.present(IntroViewController(), animated: true)
-                }
-            case .failure(let error):
-                print("Login failed with error: \(error.localizedDescription)")
+        UserService().request(url:"userAdd.php",parameters: parameters) { (result) -> () in
+            
+            var userData = result[0] as? UserModel
+             
+            if(userData?.id == "0")
+            {
+                self.warningPanel(title: "Uyarı", message: "Kullanıcı Mevcut")
             }
+            else
+            {
+                self.present(IntroViewController(), animated: true)
+            }
+            
         }
     }
 

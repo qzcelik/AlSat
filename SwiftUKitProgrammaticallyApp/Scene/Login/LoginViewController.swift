@@ -139,35 +139,25 @@ extension LoginViewController
     
     func userRequest(parameters : [String:Any])
     {
-        ServiceManagerPost().request(parameters: parameters, connectionService: "userCheck.php" ) { [self] result in
-            switch result {
-            case .success(let loginResponse):
-                print("Login successful. Message: \(loginResponse.message)")
-                userCheck(loginResponse: loginResponse.message)
-            case .failure(let error):
-                print("Login failed with error: \(error.localizedDescription)")
-            }
-        }
+        UserService().request(url : "userCheck.php" ,parameters: parameters) { (result) -> () in
+            var userCheckData =  result[0] as? UserModel
+            self.userCheck(userData: userCheckData!)
+         }
     }
     
-    func userCheck(loginResponse : String)
+    func userCheck(userData : UserModel)
     {
-        if let jsonData = loginResponse.data(using: .utf8) {
-            do {
-                LoginViewController.user = try JSONDecoder().decode(UserModel.self, from: jsonData)
-                if(LoginViewController.user?.id != "0")
+             if(userData.id != "0")
                 {
+                    LoginViewController.user = userData
                     self.present(IntroViewController(), animated: true)
                 }
                 else
                 {
                     self.warningPanel(title: "Uyarı",message: "Kullanıcı bulunamadı")
                 }
-            } catch {
-                print("JSON decode hatası: \(error.localizedDescription)")
-            }
-        }
-    }
+      }
+     
     
     func constraint()
     {

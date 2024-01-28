@@ -3,4 +3,86 @@
    uuid = "F46D4BD0-98F4-4389-B7F1-707A71A92E2C"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE4E6158-2B78-4332-B679-58D605A1DC00"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUKitProgrammaticallyApp/Scene/Login/SignUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "userRequest(parameters:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BE87FF1-6AAA-4730-9B12-4127896216D5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUKitProgrammaticallyApp/Scene/ProductViews/ProductHorizontalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "likeButtonClick()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06111DA9-F69A-4C45-BA55-35748E76665C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "request(url:parameters:responseItems:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06111DA9-F69A-4C45-BA55-35748E76665C - 3ec7e91576a326eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUKitProgrammaticallyApp.FavoriteService.request(url: Swift.String, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseItems: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftUKitProgrammaticallyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "06111DA9-F69A-4C45-BA55-35748E76665C - 5093f52a0932c6b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;SwiftUKitProgrammaticallyApp.FavoriteModel&gt;) -&gt; () in SwiftUKitProgrammaticallyApp.FavoriteService.request(url: Swift.String, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseItems: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftUKitProgrammaticallyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

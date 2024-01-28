@@ -30,9 +30,13 @@ class ProductFavViewController: UIViewController {
     
   func generateUI()
     {
-        ProductService().productServiceRequest(){(result) -> () in
+        let parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!
+        ]
+        
+        ProductService().request(url :"favorite.php", parameters: parameters){(result) -> () in
    
-            let productTableView = ProductTableView(prodcutTable: result, viewController: ConstantEnums.Views.productDetail)
+            let productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])!, viewController: ConstantEnums.Views.productDetail)
             productTableView.willMove(toParent: self)
             self.tableViewContainer.addSubview(productTableView.view)
             productTableView.view.frame = self.tableViewContainer.bounds

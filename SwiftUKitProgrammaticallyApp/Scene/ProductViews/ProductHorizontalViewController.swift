@@ -92,7 +92,6 @@ class CustomCell: UICollectionViewCell {
             let pImage = AF.request(data.filePath!).responseImage { response in
                 self.producHorizontalImage.image = UIImage(data: response.data!)
             }
-          
             productTitle.text = data.productTitle
             shorDetail.text = data.fileName
             price.text = "\(String(describing: data.productPrice!)) TL"
@@ -152,6 +151,15 @@ class CustomCell: UICollectionViewCell {
 
     @objc func likeButtonClick()
     {
+        var dataId = data?.id
+        var parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!,
+            "productId" : dataId!
+        ]
+        
+        FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
+            
+        }
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
         likeButton.tintColor = .red
     }

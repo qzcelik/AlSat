@@ -15,6 +15,7 @@ struct ProductModel : Codable
     var productTitle : String?
     var productDescription : String?
     var productPrice : String?
+    var id: String?
 }
 
 

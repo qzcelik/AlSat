@@ -150,8 +150,8 @@ class HomeViewController: UIViewController {
         scroolView.addSubview(contentView)
         view.addSubview(scroolView)
         
-        ProductService().productServiceRequest(){(result) -> () in
-            self.generateHorizontalMenu(result: result)
+        ProductService().request(url : "productGetData.php",parameters:nil){(result) -> () in
+            self.generateHorizontalMenu(result: (result as? [ProductModel])!)
         }
         
         notificationButton.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)

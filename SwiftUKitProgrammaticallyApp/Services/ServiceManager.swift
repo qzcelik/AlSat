@@ -7,12 +7,12 @@
 
 import Alamofire
 
-final class ServiceManagerGet
+final class ServiceManager
 {
-    static let sharedService: ServiceManagerGet = ServiceManagerGet()
+    static let sharedService: ServiceManager = ServiceManager()
 }
 
-extension ServiceManagerGet
+extension ServiceManager
 {
     func serviceManagerRequest <T> (url: String, parameters : [String : Any]?, responseItems:@escaping ([T])->()) where T: Codable
     {

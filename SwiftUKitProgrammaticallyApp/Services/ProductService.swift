@@ -9,17 +9,16 @@ import Foundation
 import Alamofire
 
  
-final class ProductService
+final class ProductService : ServiceRequestProtocol
 {
-    func productServiceRequest(responseItems:@escaping ([ProductModel])->())
-    {
-        let parameters: [String: Any] = [
-            "userId" : (Any).self
-        ]
-        ServiceManagerGet.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + "productGetData.php",parameters: parameters) {
+    func request(url: String, parameters: [String : Any]?, responseItems: @escaping ([Any]) -> ()) {
+       
+        ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + url,parameters: parameters) {
             (productModelList: [ProductModel]) -> () in
             responseItems(productModelList)
         }
     }
+    
+    
 }
 

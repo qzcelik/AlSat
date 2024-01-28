@@ -129,8 +129,8 @@ class ProductDetailViewController: UIViewController {
         productLikeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
         
         
-        ProductService().productServiceRequest(){(result) -> () in
-            self.prepareSimilarProductContainer(data: result)
+        ProductService().request(url:"productGetData.php",parameters:nil){(result) -> () in
+            self.prepareSimilarProductContainer(data:  (result as? [ProductModel])!)
         }
         
         productBuyButton.addTarget(self, action: #selector(buyProduct), for: .touchUpInside)
@@ -159,6 +159,7 @@ class ProductDetailViewController: UIViewController {
     
     @objc func likeButtonClick()
     {
+        print(self.data.id)
         productLikeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
         productLikeButton.tintColor = .red
     }
