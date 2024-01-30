@@ -159,9 +159,27 @@ class ProductDetailViewController: UIViewController {
     
     @objc func likeButtonClick()
     {
-        print(self.data.id)
+        var dataId = data.id
+        var parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!,
+            "productId" : dataId!
+        ]
+        
+        FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
+            
+        }
         productLikeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
-        productLikeButton.tintColor = .red
+        
+        if(true)
+        {
+            productLikeButton.tintColor = .red
+        }
+        else
+        {
+            productLikeButton.tintColor = .white
+        }
+            
+        
     }
     
     func constrait()
