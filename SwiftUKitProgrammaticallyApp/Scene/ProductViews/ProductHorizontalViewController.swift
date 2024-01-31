@@ -48,6 +48,7 @@ class ProductVerticalViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         constrait()
+    
     }
     
     func constrait()
@@ -73,6 +74,26 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         cell.data = dataArray[indexPath.item]
+        
+            let dataId = cell.data?.id
+            let parameters : [String:Any] = [
+                "userId" : LoginViewController.user.id!,
+                "productId" : dataId!
+            ]
+                
+                FavoriteService().request(url: "favoriteCheck.php", parameters: parameters){(result) -> () in
+                let checkResult = result[0] as! CheckModel
+            
+                if(checkResult.response == "ok")
+                    {
+                    cell.likeButton.tintColor = .red
+                    }
+                    else
+                    {
+                        cell.likeButton.tintColor = .white
+                    }
+                }
+        
         return cell
     }
     
@@ -116,8 +137,7 @@ class CustomCell: UICollectionViewCell {
     
     let likeButton : UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "heart"), for: [])
-        button.tintColor = .white
+        button.setImage(UIImage(systemName: "heart.fill"), for: [])
         button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
@@ -149,19 +169,28 @@ class CustomCell: UICollectionViewCell {
         likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
     }
 
+ 
+    
     @objc func likeButtonClick()
     {
-        var dataId = data?.id
-        var parameters : [String:Any] = [
+        let dataId = data?.id
+        let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
             "productId" : dataId!
         ]
-        
+    
         FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
-            
+            let checkResult = result[0] as! CheckModel
+        
+            if(checkResult.response == "ok")
+                {
+                    self.likeButton.tintColor = .red
+                }
+                else
+                {
+                    self.likeButton.tintColor = .white
+                }
         }
-        likeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
-        likeButton.tintColor = .red
     }
   
     

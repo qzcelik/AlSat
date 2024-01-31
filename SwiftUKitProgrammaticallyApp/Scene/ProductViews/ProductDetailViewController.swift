@@ -29,8 +29,9 @@ class ProductDetailViewController: UIViewController {
     
     let productLikeButton : UIButton = {
         let image = UIButton()
-        image.setImage(UIImage(systemName: "heart"), for:[])
-        image.tintColor = .black
+        image.setImage(UIImage(systemName: "heart.fill"), for:[])
+        
+        image.tintColor = .systemOrange
         return image
     }()
     
@@ -140,6 +141,25 @@ class ProductDetailViewController: UIViewController {
         view.addGestureRecognizer(swipeRight)
         
         constrait()
+        
+        let dataId = data.id
+        let parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!,
+            "productId" : dataId!
+        ]
+            
+            FavoriteService().request(url: "favoriteCheck.php", parameters: parameters){(result) -> () in
+            let checkResult = result[0] as! CheckModel
+        
+            if(checkResult.response == "ok")
+                {
+                    self.productLikeButton.tintColor = .red
+                }
+                else
+                {
+                    self.productLikeButton.tintColor = .systemOrange
+                }
+            }
     }
     
    @objc func buyProduct()
@@ -159,27 +179,24 @@ class ProductDetailViewController: UIViewController {
     
     @objc func likeButtonClick()
     {
-        var dataId = data.id
-        var parameters : [String:Any] = [
+        let dataId = data.id
+        let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
             "productId" : dataId!
         ]
         
         FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
-            
-        }
-        productLikeButton.setImage(UIImage(systemName: "heart.fill"), for: [])
+            let checkResult = result[0] as! CheckModel
         
-        if(true)
-        {
-            productLikeButton.tintColor = .red
+            if(checkResult.response == "ok")
+                {
+                    self.productLikeButton.tintColor = .red
+                }
+                else
+                {
+                    self.productLikeButton.tintColor = .systemOrange
+                }
         }
-        else
-        {
-            productLikeButton.tintColor = .white
-        }
-            
-        
     }
     
     func constrait()

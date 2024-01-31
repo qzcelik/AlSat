@@ -12,7 +12,7 @@ class FavoriteService  : ServiceRequestProtocol
 {
     func request(url:String, parameters: [String : Any]?, responseItems: @escaping ([Any]) -> ()) {
         ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + url,parameters: parameters) {
-            (productModelList: [FavoriteModel]) -> () in
+            (productModelList: [CheckModel]) -> () in
             responseItems(productModelList)
         }
     }

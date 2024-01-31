@@ -34,7 +34,7 @@ class ProductFavViewController: UIViewController {
             "userId" : LoginViewController.user.id!
         ]
         
-        ProductService().request(url :"favorite.php", parameters: parameters){(result) -> () in
+            ProductService().request(url :"favorite.php", parameters: parameters){(result) -> () in
    
             let productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])!, viewController: ConstantEnums.Views.productDetail)
             productTableView.willMove(toParent: self)

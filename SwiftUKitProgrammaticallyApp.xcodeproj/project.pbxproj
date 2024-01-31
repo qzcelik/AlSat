@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1008716B2B6ACED100249431 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008716A2B6ACED100249431 /* CheckModel.swift */; };
 		10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4BD132B42C54800E34358 /* ProductFavViewController.swift */; };
 		10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA22B36FE79006FEB99 /* AppDelegate.swift */; };
 		10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1008716A2B6ACED100249431 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
 		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
 		10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUKitProgrammaticallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A60FA22B36FE79006FEB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				10A82A1D2B3A030E0005E04B /* ProductModel.swift */,
 				10D6234D2B61A1B2002BEF27 /* UserModel.swift */,
 				10E206512B66A9F300B27A91 /* FavoriteModel.swift */,
+				1008716A2B6ACED100249431 /* CheckModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */,
 				10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */,
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
+				1008716B2B6ACED100249431 /* CheckModel.swift in Sources */,
 				10D66D0E2B389B8600984844 /* ProductHorizontalViewController.swift in Sources */,
 				10A60FC92B377277006FEB99 /* NewsView.swift in Sources */,
 				10D6234E2B61A1B2002BEF27 /* UserModel.swift in Sources */,
