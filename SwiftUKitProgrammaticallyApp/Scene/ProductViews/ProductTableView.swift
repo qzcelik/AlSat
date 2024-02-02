@@ -30,6 +30,12 @@ class ProductTableView : UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    func updateData(prodcutTable : [ProductModel])
+    {
+        self.dataArray = prodcutTable
+        tableViewVertical.reloadData()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -145,7 +145,7 @@ class ProductDetailViewController: UIViewController {
         let dataId = data.id
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
-            "productId" : dataId!
+            "productId" : dataId ?? ""
         ]
             
             FavoriteService().request(url: "favoriteCheck.php", parameters: parameters){(result) -> () in
@@ -182,7 +182,7 @@ class ProductDetailViewController: UIViewController {
         let dataId = data.id
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
-            "productId" : dataId!
+            "productId" : dataId ?? ""
         ]
         
         FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in

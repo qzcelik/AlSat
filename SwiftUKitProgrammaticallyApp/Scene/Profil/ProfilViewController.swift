@@ -93,7 +93,19 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     }
     
  
-
+    var productTableView : ProductTableView!
+    var refreshControl = UIRefreshControl();
+    
+    @objc func refreshTableView()
+    {
+        let parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!
+        ]
+            ProductService().request(url :"productGetMyData.php", parameters: parameters){(result) -> () in
+                self.productTableView.updateData(prodcutTable: (result as? [ProductModel])!)
+        }
+        self.productTableView.tableViewVertical.refreshControl?.endRefreshing()
+    }
     
     func prepareUI()
     {
@@ -128,12 +140,15 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         ]
        
           ProductService().request(url : "productGetMyData.php",parameters:parameter){(result) -> () in
-              let productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])! , viewController: ConstantEnums.Views.productDetail)
-              productTableView.willMove(toParent: self)
-              self.addedProductContainer.addSubview(productTableView.view)
-              productTableView.view.frame = self.addedProductContainer.bounds
-              self.addChild(productTableView)
-              productTableView.didMove(toParent: self)
+              self.productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])! , viewController: ConstantEnums.Views.productDetail)
+              self.productTableView.willMove(toParent: self)
+              self.addedProductContainer.addSubview(self.productTableView.view)
+              self.productTableView.view.frame = self.addedProductContainer.bounds
+              self.addChild(self.productTableView)
+              self.productTableView.didMove(toParent: self)
+              
+              self.productTableView.tableViewVertical.refreshControl = self.refreshControl
+              self.refreshControl.addTarget(self, action:#selector(self.refreshTableView), for: .valueChanged)
          }
       }
 
