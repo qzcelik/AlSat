@@ -25,6 +25,7 @@
 		10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B989A32B4C6429000B0E10 /* MultipartService.swift */; };
 		10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9A48F2B447A4F008807C4 /* TestViewController.swift */; };
 		10BA7A572B5EEFED00B556C6 /* ProductDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BA7A562B5EEFED00B556C6 /* ProductDelegate.swift */; };
+		10BDD6392B7A8B6B00D12D51 /* DeleteProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BDD6382B7A8B6B00D12D51 /* DeleteProductService.swift */; };
 		10C877FE2B56F81300382EF0 /* ProductAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C877FD2B56F81300382EF0 /* ProductAddViewController.swift */; };
 		10CA36A12B3E02B00079B251 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA36A02B3E02B00079B251 /* ServiceManager.swift */; };
 		10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CB01432B3849DD00097CD4 /* IntroViewController.swift */; };
@@ -73,6 +74,7 @@
 		10B989A32B4C6429000B0E10 /* MultipartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartService.swift; sourceTree = "<group>"; };
 		10B9A48F2B447A4F008807C4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		10BA7A562B5EEFED00B556C6 /* ProductDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDelegate.swift; sourceTree = "<group>"; };
+		10BDD6382B7A8B6B00D12D51 /* DeleteProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductService.swift; sourceTree = "<group>"; };
 		10C877FD2B56F81300382EF0 /* ProductAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAddViewController.swift; sourceTree = "<group>"; };
 		10CA36A02B3E02B00079B251 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		10CB01432B3849DD00097CD4 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		10A82A1C2B3A02EC0005E04B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				10BDD6382B7A8B6B00D12D51 /* DeleteProductService.swift */,
 				10A82A202B3A06F50005E04B /* ProductService.swift */,
 				10CA36A02B3E02B00079B251 /* ServiceManager.swift */,
 				10B989A32B4C6429000B0E10 /* MultipartService.swift */,
@@ -438,6 +441,7 @@
 				10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
+				10BDD6392B7A8B6B00D12D51 /* DeleteProductService.swift in Sources */,
 				10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */,
 				10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */,
 				10E2064C2B6663AF00B27A91 /* FavoriteService.swift in Sources */,

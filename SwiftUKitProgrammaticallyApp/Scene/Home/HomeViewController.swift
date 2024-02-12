@@ -156,6 +156,7 @@ class HomeViewController: UIViewController {
         
         notificationButton.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
         notificationButton2.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
+        userNameLabel.text  = LoginViewController.user.username
         
         addConstrait()
         generateNewsView()

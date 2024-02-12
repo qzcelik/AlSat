@@ -77,14 +77,34 @@ class ProductTableView : UIViewController {
            return 100
        }
        
+       func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          
+           print(dataArray[indexPath.row].id!)
+           if (editingStyle == .delete)
+           {
+               let parameters : [String:Any] = [
+                "productId" : dataArray[indexPath.row].id! as String
+               ]
+              
+              DeleteProductService().request(url: "deleteMyProduct.php", parameters: parameters) { (result) -> () in
+                  let response =  result as? [CheckModel]
+                  if(response![0].response == "ok")
+                  {
+                       self.dataArray.remove(at: indexPath.row)
+                       tableView.deleteRows(at: [indexPath], with: .fade)
+                  }
+                }
+           }
+       }
+       
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            
            switch viewContorollerT
            {
-           case .productDetail:
-               self.present(ProductDetailViewController(data: dataArray[indexPath.item]), animated:true,completion: nil)
-           case .test:
-               print("test")
+               case .productDetail:
+                   self.present(ProductDetailViewController(data: dataArray[indexPath.item]), animated:true,completion: nil)
+               case .test:
+                   print("test")
            }
        }
        

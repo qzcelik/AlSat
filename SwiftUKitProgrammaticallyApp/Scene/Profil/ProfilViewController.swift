@@ -107,6 +107,8 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         self.productTableView.tableViewVertical.refreshControl?.endRefreshing()
     }
     
+   
+    
     func prepareUI()
     {
         productAddViewController.delegate = self
@@ -132,6 +134,8 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         constraint()
         generateProductList()
     }
+    
+   
     
     func generateProductList()
       {

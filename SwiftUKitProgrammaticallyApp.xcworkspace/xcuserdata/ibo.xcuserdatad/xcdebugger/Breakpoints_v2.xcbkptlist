@@ -20,53 +20,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "06111DA9-F69A-4C45-BA55-35748E76665C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "request(url:parameters:responseItems:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "06111DA9-F69A-4C45-BA55-35748E76665C - 3ec7e91576a326eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftUKitProgrammaticallyApp.FavoriteService.request(url: Swift.String, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseItems: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SwiftUKitProgrammaticallyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "06111DA9-F69A-4C45-BA55-35748E76665C - 5093f52a0932c6b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;SwiftUKitProgrammaticallyApp.FavoriteModel&gt;) -&gt; () in SwiftUKitProgrammaticallyApp.FavoriteService.request(url: Swift.String, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, responseItems: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SwiftUKitProgrammaticallyApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Services/FavoriteService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
