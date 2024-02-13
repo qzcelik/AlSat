@@ -93,7 +93,7 @@ class HomeViewController: UIViewController {
     let searchCleanButton : UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark.circle" ), for: [])
-        button.tintColor = .black
+        button.tintColor = .systemOrange
         return button
     }()
     
@@ -280,15 +280,15 @@ class HomeViewController: UIViewController {
         
         containerProductView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
-            make.height.equalTo(200)
+            make.height.equalTo(220)
             make.topMargin.equalTo(newsContainer).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
         }
         
         containerProductShortView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
-            make.height.equalTo(200)
-            make.topMargin.equalTo(containerProductView).offset(220)
+            make.height.equalTo(220)
+            make.topMargin.equalTo(containerProductView).offset(240)
             make.leftMargin.equalTo(50)
         }
     

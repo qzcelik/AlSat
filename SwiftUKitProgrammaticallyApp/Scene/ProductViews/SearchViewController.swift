@@ -21,7 +21,7 @@ class SearchViewController: UIViewController {
            
            override func viewDidLoad() {
                super.viewDidLoad()
-               title = "Favori"
+               title = "Arama"
                view.backgroundColor = .white
                view.addSubview(tableViewContainer)
                generateUI()

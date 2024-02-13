@@ -55,7 +55,7 @@ class ProductVerticalViewController: UIViewController {
     {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(220)
+            make.height.equalTo(230)
             make.center.equalToSuperview()
         }
     }
@@ -146,7 +146,6 @@ class CustomCell: UICollectionViewCell {
        
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
         label.textColor = .black
         return label
     }()

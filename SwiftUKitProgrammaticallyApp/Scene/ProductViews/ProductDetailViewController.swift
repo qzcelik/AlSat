@@ -62,9 +62,8 @@ class ProductDetailViewController: UIViewController {
     
     let productBuyButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Sepete Ekle", for: [])
-        button.setTitleColor(.white, for: [])
-        button.backgroundColor = .systemOrange
+        button.setImage(UIImage(systemName: "basket"), for: [])
+        button.tintColor = .systemOrange
         button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
@@ -75,7 +74,7 @@ class ProductDetailViewController: UIViewController {
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .center
         label.textColor = .white
-        label.backgroundColor = .systemIndigo
+        label.backgroundColor = .systemOrange
         return label
     }()
     
@@ -164,7 +163,10 @@ class ProductDetailViewController: UIViewController {
     
    @objc func buyProduct()
     {
-        print("product buy")
+        
+        let alert = UIAlertController(title: "Uyarı", message: "Sepete Ekleme", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func prepareSimilarProductContainer(data: [ProductModel])
@@ -210,9 +212,9 @@ class ProductDetailViewController: UIViewController {
         }
         
         productImage.snp.makeConstraints { make in
-            make.width.equalTo(350)
-            make.height.equalTo(200)
-            make.topMargin.equalTo(100)
+            make.width.equalTo(400)
+            make.height.equalTo(250)
+            make.topMargin.equalTo(50)
             make.centerX.equalToSuperview()
         }
         
@@ -225,7 +227,7 @@ class ProductDetailViewController: UIViewController {
         productTitleLabel.snp.makeConstraints { make in
             make.width.equalTo(productImage)
             make.height.equalTo(50)
-            make.topMargin.equalTo(productImage).offset(200)
+            make.topMargin.equalTo(productImage).offset(250)
             make.leftMargin.equalTo(50)
         }  
         
@@ -244,10 +246,10 @@ class ProductDetailViewController: UIViewController {
         }
         
         productBuyButton.snp.makeConstraints { make in
-            make.width.equalTo(150)
+            make.width.equalTo(100)
             make.height.equalTo(50)
-            make.topMargin.equalTo(productPriceLabel).offset(50)
-            make.centerX.equalToSuperview()
+            make.topMargin.equalTo(productLikeButton).offset(25)
+            make.centerX.equalTo(productLikeButton)
         }
         
         similarTitle.snp.makeConstraints { make in
