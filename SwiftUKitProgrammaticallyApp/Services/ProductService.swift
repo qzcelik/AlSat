@@ -11,9 +11,9 @@ import Alamofire
  
 final class ProductService : ServiceRequestProtocol
 {
-    func request(url: String, parameters: [String : Any]?, responseItems: @escaping ([Any]) -> ()) {
+    func request(url: String, parameters: [String : Any]?, method : HTTPMethod, responseItems: @escaping ([Any]) -> ()) {
        
-        ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + url,parameters: parameters) {
+        ServiceManager.sharedService.serviceManagerRequest(url:ConstantVariable.baseUrl + url,parameters: parameters,method:method) {
             (productModelList: [ProductModel]) -> () in
             responseItems(productModelList)
         }

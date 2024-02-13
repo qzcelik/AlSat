@@ -74,19 +74,18 @@ class ProductTableView : UIViewController {
        }
        
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 100
+           return 120
        }
        
        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
           
-           print(dataArray[indexPath.row].id!)
            if (editingStyle == .delete)
            {
                let parameters : [String:Any] = [
                 "productId" : dataArray[indexPath.row].id! as String
                ]
               
-              DeleteProductService().request(url: "deleteMyProduct.php", parameters: parameters) { (result) -> () in
+               DeleteProductService().request(url: "deleteMyProduct.php", parameters: parameters,method: .post) { (result) -> () in
                   let response =  result as? [CheckModel]
                   if(response![0].response == "ok")
                   {
@@ -132,7 +131,7 @@ class ProductTableView : UIViewController {
            let productTitle : UILabel =
            {
                let label = UILabel()
-               label.font = .boldSystemFont(ofSize: 12)
+               label.font = .boldSystemFont(ofSize: 18)
                label.textColor = .black
                return label
            }()
@@ -142,15 +141,15 @@ class ProductTableView : UIViewController {
            let shorDetail : UILabel = {
                
                let label = UILabel()
-               label.font = .systemFont(ofSize: 12)
+               label.font = .systemFont(ofSize: 15)
                label.textColor = .black
                return label
            }()
            
            let price : UILabel = {
                let label = UILabel()
-               label.font = .systemFont(ofSize: 10)
-               label.textColor = .black
+               label.font = .systemFont(ofSize: 12)
+               label.textColor = .systemOrange
                return label
            }()
            
@@ -168,21 +167,21 @@ class ProductTableView : UIViewController {
            {
                producHorizontalImage.snp.makeConstraints { make in
                    make.leftMargin.equalTo(20)
-                   make.width.height.equalTo(75)
+                   make.width.height.equalTo(100)
                    make.centerY.equalToSuperview()
                }
                
                productTitle.snp.makeConstraints { make in
                    make.height.equalTo(50)
                    make.width.equalTo(300)
-                   make.leftMargin.equalTo(producHorizontalImage).offset(150)
+                   make.leftMargin.equalTo(producHorizontalImage).offset(120)
                    make.topMargin.equalTo(10)
                }
                
                shorDetail.snp.makeConstraints { make in
                    make.height.equalTo(50)
                    make.width.equalTo(contentView)
-                   make.topMargin.equalTo(productTitle).offset(15)
+                   make.topMargin.equalTo(productTitle).offset(25)
                    make.leftMargin.equalTo(productTitle)
                }
                
@@ -190,7 +189,7 @@ class ProductTableView : UIViewController {
                    make.height.equalTo(50)
                    make.width.equalTo(contentView)
                    make.topMargin.equalTo(shorDetail).offset(15)
-                   make.leftMargin.equalTo(shorDetail)
+                   make.leftMargin.equalTo(shorDetail).offset(175)
                }
                
            }

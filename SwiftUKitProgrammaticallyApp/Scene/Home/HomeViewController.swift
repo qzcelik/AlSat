@@ -90,13 +90,25 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    let inputField : UITextField = {
+    let searchCleanButton : UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "xmark.circle" ), for: [])
+        button.tintColor = .black
+        return button
+    }()
+    
+    let searchField : UITextField = {
         let inputField = UITextField()
         inputField.placeholder = "Arama"
         return inputField
     }()
     
     let containerProductView : UIView = {
+        let containerView = UIView()
+        return containerView
+    }()
+    
+    let containerProductShortView : UIView = {
         let containerView = UIView()
         return containerView
     }()
@@ -122,8 +134,7 @@ class HomeViewController: UIViewController {
         let view = UIView()
         return view
     }()
-    
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -140,27 +151,59 @@ class HomeViewController: UIViewController {
         topView.addSubview(topViewInfo)
         
         searchView.addSubview(searchButton)
-        searchView.addSubview(inputField)
+        searchView.addSubview(searchField)
+        searchView.addSubview(searchCleanButton)
         
         contentView.addSubview(topView)
         contentView.addSubview(searchView)
         contentView.addSubview(containerProductView)
+        contentView.addSubview(containerProductShortView)
         contentView.addSubview(newsContainer)
         
         scroolView.addSubview(contentView)
         view.addSubview(scroolView)
         
-        ProductService().request(url : "productGetData.php",parameters:nil){(result) -> () in
+        ProductService().request(url : "productGetData.php",parameters:nil,method: .post){(result) -> () in
             self.generateHorizontalMenu(result: (result as? [ProductModel])!)
+        }
+        
+        ProductService().request(url : "productGetData.php",parameters:nil,method: .post){(result) -> () in
+            self.generateHorizontalMenuShort(result: (result as? [ProductModel])!)
         }
         
         notificationButton.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
         notificationButton2.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchProduct), for: .touchUpInside)
+        searchCleanButton.addTarget(self, action: #selector(cleanSearchBar), for: .touchUpInside)
         userNameLabel.text  = LoginViewController.user.username
         
         addConstrait()
         generateNewsView()
         dismissKeyboard()
+    }
+    
+    @objc func cleanSearchBar()
+    {
+        searchField.text = ""
+    }
+    
+    @objc func searchProduct()
+    {
+        if(searchField.text != "")
+        {
+            if let searchData = searchField.text{
+                let searchViewController = SearchViewController()
+                searchViewController.searchData = searchData
+                navigationController?.pushViewController(searchViewController, animated: true)
+            }
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Uyarı", message: "Arama Çubuğunu Doldurun", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @objc func notificationScreen()
@@ -191,13 +234,36 @@ class HomeViewController: UIViewController {
     
     func generateHorizontalMenu(result : [ProductModel])
     {
-        let productView = ProductVerticalViewController(tableCount: 5,dataArray: result)
+        var randomProducts = [ProductModel]()
+        for index in 0...5
+        {
+            randomProducts.append(result[Int.random(in: 0...result.count-1)])
+        }
+        
+        let productView = ProductVerticalViewController(tableCount: 5,dataArray: randomProducts)
         productView.willMove(toParent: self)
         self.containerProductView.addSubview(productView.view)
         productView.view.frame = self.containerProductView.bounds
         self.addChild(productView)
         productView.didMove(toParent: self)
     }
+    
+    func generateHorizontalMenuShort(result : [ProductModel])
+    {
+        var randomProducts = [ProductModel]()
+        for index in 0...2
+        {
+            randomProducts.append(result[Int.random(in: 0...result.count-1)])
+        }
+        
+        let productView = ProductVerticalViewController(tableCount: 2,dataArray: randomProducts)
+        productView.willMove(toParent: self)
+        self.containerProductShortView.addSubview(productView.view)
+        productView.view.frame = self.containerProductShortView.bounds
+        self.addChild(productView)
+        productView.didMove(toParent: self)
+    }
+    
     
     func addConstrait()
     {
@@ -217,6 +283,13 @@ class HomeViewController: UIViewController {
             make.height.equalTo(200)
             make.topMargin.equalTo(newsContainer).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
+        }
+        
+        containerProductShortView.snp.makeConstraints { make in
+            make.width.equalTo(scroolView)
+            make.height.equalTo(200)
+            make.topMargin.equalTo(containerProductView).offset(220)
+            make.leftMargin.equalTo(50)
         }
     
         profilButton.snp.makeConstraints { make in
@@ -276,7 +349,13 @@ class HomeViewController: UIViewController {
             make.left.equalToSuperview().offset(10)
         }
         
-        inputField.snp.makeConstraints { make in
+        searchCleanButton.snp.makeConstraints { make in
+            make.width.height.equalTo(30)
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(320)
+        }
+        
+        searchField.snp.makeConstraints { make in
             make.width.equalTo(250)
             make.height.equalTo(40)
             make.centerY.equalToSuperview()

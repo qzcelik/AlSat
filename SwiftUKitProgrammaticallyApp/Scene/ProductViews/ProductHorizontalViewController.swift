@@ -81,7 +81,7 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
                 "productId" : dataId!
             ]
                 
-                FavoriteService().request(url: "favoriteCheck.php", parameters: parameters){(result) -> () in
+        FavoriteService().request(url: "favoriteCheck.php", parameters: parameters,method: .post){(result) -> () in
                 let checkResult = result[0] as! CheckModel
             
                 if(checkResult.response == "ok")
@@ -147,24 +147,36 @@ class CustomCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
         label.textColor = .black
+        label.textColor = .black
         return label
     }()
     
     let price : UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 10)
-        label.textColor = .black
+        label.textColor = .systemOrange
         return label
+    }()
+    
+    let card : UIView = {
+       let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
+        view.layer.borderColor = UIColor.gray.cgColor
+        view.layer.borderWidth = 0.3
+        return view
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        contentView.addSubview(card)
         contentView.addSubview(producHorizontalImage)
         contentView.addSubview(productTitle)
         contentView.addSubview(likeButton)
         contentView.addSubview(shorDetail)
         contentView.addSubview(price)
+      
         constrait()
         likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
     }
@@ -179,7 +191,7 @@ class CustomCell: UICollectionViewCell {
             "productId" : dataId!
         ]
     
-        FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
+        FavoriteService().request(url: "addFavorite.php", parameters: parameters, method: .post){(result) -> () in
             let checkResult = result[0] as! CheckModel
         
             if(checkResult.response == "ok")
@@ -202,15 +214,18 @@ class CustomCell: UICollectionViewCell {
             make.height.equalTo(15)
             make.height.equalTo(20)
         }
+        
         producHorizontalImage.snp.makeConstraints { make in
-            make.topMargin.equalToSuperview()
-            make.width.height.equalTo(150)
+            make.topMargin.equalToSuperview().offset(20)
+            make.width.height.equalTo(135)
+            make.centerX.equalToSuperview()
         }
         
         productTitle.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.width.equalTo(producHorizontalImage)
-            make.leftMargin.bottomMargin.equalTo(contentView).offset(5)
+            make.leftMargin.equalTo(contentView).offset(5)
+            make.topMargin.equalTo(producHorizontalImage).offset(130)
         }
         
          shorDetail.snp.makeConstraints { make in
@@ -223,8 +238,13 @@ class CustomCell: UICollectionViewCell {
         price.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.width.equalTo(contentView)
-            make.topMargin.equalTo(shorDetail).offset(15)
-            make.leftMargin.equalTo(shorDetail)
+            make.topMargin.equalTo(shorDetail)
+            make.leftMargin.equalTo(productTitle).offset(90)
+        }
+        
+        card.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalTo(200)
         }
             
     }

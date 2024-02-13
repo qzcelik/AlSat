@@ -101,7 +101,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!
         ]
-            ProductService().request(url :"productGetMyData.php", parameters: parameters){(result) -> () in
+        ProductService().request(url :"productGetMyData.php", parameters: parameters,method:.post){(result) -> () in
                 self.productTableView.updateData(prodcutTable: (result as? [ProductModel])!)
         }
         self.productTableView.tableViewVertical.refreshControl?.endRefreshing()
@@ -143,7 +143,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
             "userId" : LoginViewController.user.id! as Any
         ]
        
-          ProductService().request(url : "productGetMyData.php",parameters:parameter){(result) -> () in
+          ProductService().request(url : "productGetMyData.php",parameters:parameter,method: .post){(result) -> () in
               self.productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])! , viewController: ConstantEnums.Views.productDetail)
               self.productTableView.willMove(toParent: self)
               self.addedProductContainer.addSubview(self.productTableView.view)

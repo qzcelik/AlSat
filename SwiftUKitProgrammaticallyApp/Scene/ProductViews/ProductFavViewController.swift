@@ -36,7 +36,7 @@ class ProductFavViewController: UIViewController {
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!
         ]
-            ProductService().request(url :"favorite.php", parameters: parameters){(result) -> () in
+        ProductService().request(url :"favorite.php", parameters: parameters,method:.post){(result) -> () in
                 self.productTableView.updateData(prodcutTable: (result as? [ProductModel])!)
         }
         self.productTableView.tableViewVertical.refreshControl?.endRefreshing()
@@ -48,7 +48,7 @@ class ProductFavViewController: UIViewController {
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!
         ]
-            ProductService().request(url :"favorite.php", parameters: parameters){(result) -> () in
+        ProductService().request(url :"favorite.php", parameters: parameters,method: .post){(result) -> () in
                 self.productTableView = ProductTableView(prodcutTable: (result as? [ProductModel])!, viewController: ConstantEnums.Views.productDetail)
                 self.productTableView.willMove(toParent: self)
                 self.tableViewContainer.addSubview(self.productTableView.view)

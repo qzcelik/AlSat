@@ -62,7 +62,7 @@ class ProductDetailViewController: UIViewController {
     
     let productBuyButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Satın Al", for: [])
+        button.setTitle("Sepete Ekle", for: [])
         button.setTitleColor(.white, for: [])
         button.backgroundColor = .systemOrange
         button.layer.cornerRadius = ConstantVariable.cornerRadius
@@ -130,7 +130,7 @@ class ProductDetailViewController: UIViewController {
         productLikeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
         
         
-        ProductService().request(url:"productGetData.php",parameters:nil){(result) -> () in
+        ProductService().request(url:"productGetData.php",parameters:nil,method: .post){(result) -> () in
             self.prepareSimilarProductContainer(data:  (result as? [ProductModel])!)
         }
         
@@ -148,7 +148,7 @@ class ProductDetailViewController: UIViewController {
             "productId" : dataId ?? ""
         ]
             
-            FavoriteService().request(url: "favoriteCheck.php", parameters: parameters){(result) -> () in
+        FavoriteService().request(url: "favoriteCheck.php", parameters: parameters, method: .post){(result) -> () in
             let checkResult = result[0] as! CheckModel
         
             if(checkResult.response == "ok")
@@ -169,7 +169,11 @@ class ProductDetailViewController: UIViewController {
     
     func prepareSimilarProductContainer(data: [ProductModel])
     {
-        let similarProducts = ProductVerticalViewController(tableCount: 2, dataArray: data)
+        var randomData = [ProductModel]()
+        randomData.append(data[Int.random(in: 0...data.count-1)])
+        randomData.append(data[Int.random(in: 0...data.count-1)])
+        
+        let similarProducts = ProductVerticalViewController(tableCount: 2, dataArray: randomData)
         similarProducts.willMove(toParent: self)
         self.similarProductContainer.addSubview(similarProducts.view)
         similarProducts.view.frame = self.similarProductContainer.bounds
@@ -185,7 +189,7 @@ class ProductDetailViewController: UIViewController {
             "productId" : dataId ?? ""
         ]
         
-        FavoriteService().request(url: "addFavorite.php", parameters: parameters){(result) -> () in
+        FavoriteService().request(url: "addFavorite.php", parameters: parameters, method: .post){(result) -> () in
             let checkResult = result[0] as! CheckModel
         
             if(checkResult.response == "ok")
@@ -248,7 +252,7 @@ class ProductDetailViewController: UIViewController {
         
         similarTitle.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.centerX.equalToSuperview()
             make.topMargin.equalTo(productBuyButton).offset(60)
         }

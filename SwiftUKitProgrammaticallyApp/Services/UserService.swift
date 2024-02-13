@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import Alamofire
 
 class UserService : ServiceRequestProtocol
 {
-    func request(url: String, parameters: [String: Any]? ,  responseItems: @escaping ([Any]) -> ()) {
-        ServiceManager.sharedService.serviceManagerRequest(url: ConstantVariable.baseUrl + url, parameters: parameters) { (users : [UserModel]) -> ()  in
+    func request(url: String, parameters: [String: Any]? , method:HTTPMethod, responseItems: @escaping ([Any]) -> ()) {
+        ServiceManager.sharedService.serviceManagerRequest(url: ConstantVariable.baseUrl + url, parameters: parameters,method: method) { (users : [UserModel]) -> ()  in
             responseItems(users)
         }
     }

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ServiceRequestProtocol
 {
-    func request(url : String, parameters: [String: Any]?, responseItems:@escaping ([Any])->())
+    func request(url : String, parameters: [String: Any]?, method: HTTPMethod, responseItems:@escaping ([Any])->())
 }

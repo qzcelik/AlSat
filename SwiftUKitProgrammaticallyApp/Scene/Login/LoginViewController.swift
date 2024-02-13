@@ -139,7 +139,7 @@ extension LoginViewController
     
     func userRequest(parameters : [String:Any])
     {
-        UserService().request(url : "userCheck.php" ,parameters: parameters) { (result) -> () in
+        UserService().request(url : "userCheck.php" ,parameters: parameters,method: .post) { (result) -> () in
             var userCheckData =  result[0] as? UserModel
             self.userCheck(userData: userCheckData!)
          }

@@ -125,7 +125,7 @@ extension SignUpViewController
     
     func userRequest(parameters : [String:Any])
     {
-        UserService().request(url:"userAdd.php",parameters: parameters) { (result) -> () in
+        UserService().request(url:"userAdd.php",parameters: parameters,method:.post) { (result) -> () in
             
             var userData = result[0] as? UserModel
              
