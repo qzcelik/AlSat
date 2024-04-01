@@ -50,15 +50,7 @@ class NewsView : UIViewController{
             make.width.equalTo(400)
             make.height.equalTo(200)
             make.centerX.equalToSuperview()
-        }
+    }
         
     }
-   
-    
-    
-    
-  
-    
-   
-
 }

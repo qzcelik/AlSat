@@ -113,6 +113,11 @@ class HomeViewController: UIViewController {
         return containerView
     }()
     
+    let containerProdcutBottomView : UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     let containerProductTableView : UIView = {
         let view = UIView()
         return view
@@ -158,6 +163,7 @@ class HomeViewController: UIViewController {
         contentView.addSubview(searchView)
         contentView.addSubview(containerProductView)
         contentView.addSubview(containerProductShortView)
+        contentView.addSubview(containerProdcutBottomView)
         contentView.addSubview(newsContainer)
         
         scroolView.addSubview(contentView)
@@ -170,6 +176,11 @@ class HomeViewController: UIViewController {
         ProductService().request(url : "productGetData.php",parameters:nil,method: .post){(result) -> () in
             self.generateHorizontalMenuShort(result: (result as? [ProductModel])!)
         }
+        
+        ProductService().request(url : "productGetData.php",parameters:nil,method: .post){(result) -> () in
+            self.generateHorizontalMenuBottom(result: (result as? [ProductModel])!)
+        }
+        
         
         notificationButton.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
         notificationButton2.addTarget(self, action: #selector(notificationScreen), for: .touchUpInside)
@@ -248,6 +259,22 @@ class HomeViewController: UIViewController {
         productView.didMove(toParent: self)
     }
     
+    func generateHorizontalMenuBottom(result : [ProductModel])
+    {
+        var randomProducts = [ProductModel]()
+        for index in 0...5
+        {
+            randomProducts.append(result[Int.random(in: 0...result.count-1)])
+        }
+        
+        let productView = ProductVerticalViewController(tableCount: 5,dataArray: randomProducts)
+        productView.willMove(toParent: self)
+        self.containerProdcutBottomView.addSubview(productView.view)
+        productView.view.frame = self.containerProdcutBottomView.bounds
+        self.addChild(productView)
+        productView.didMove(toParent: self)
+    }
+    
     func generateHorizontalMenuShort(result : [ProductModel])
     {
         var randomProducts = [ProductModel]()
@@ -284,13 +311,21 @@ class HomeViewController: UIViewController {
             make.topMargin.equalTo(newsContainer).offset(220)
             make.left.right.equalTo(scroolView).offset(5)
         }
-        
+   
         containerProductShortView.snp.makeConstraints { make in
             make.width.equalTo(scroolView)
             make.height.equalTo(220)
             make.topMargin.equalTo(containerProductView).offset(240)
             make.leftMargin.equalTo(50)
         }
+        
+        containerProdcutBottomView.snp.makeConstraints{make in
+            make.width.equalTo(scroolView)
+            make.height.equalTo(220)
+            make.topMargin.equalTo(containerProductShortView).offset(240)
+            make.left.right.equalTo(scroolView).offset(5)
+        }
+        
     
         profilButton.snp.makeConstraints { make in
             make.height.width.equalTo(40)

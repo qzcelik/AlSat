@@ -27,6 +27,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
        let button = UIButton()
         button.setImage(UIImage(systemName: "plus.rectangle"), for: [])
         button.tintColor = .white
+        button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
     
@@ -42,6 +43,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
         let button = UIButton()
         button.setImage(UIImage(systemName: "message"), for: [])
         button.tintColor = .white
+        button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
     }()
     
@@ -56,12 +58,14 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     let messageView : UIView = {
         let view = UIView()
         view.backgroundColor = .systemOrange
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
         return view
     }()
     
     let productAddView : UIView = {
         let view = UIView()
         view.backgroundColor = .systemOrange
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
         return view
     }()
     
