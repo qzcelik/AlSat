@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1008716B2B6ACED100249431 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008716A2B6ACED100249431 /* CheckModel.swift */; };
+		10A20E662BBB33CD00E2DEF8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */; };
+		10A20E682BBB475800E2DEF8 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */; };
 		10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4BD132B42C54800E34358 /* ProductFavViewController.swift */; };
 		10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA22B36FE79006FEB99 /* AppDelegate.swift */; };
 		10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		1008716A2B6ACED100249431 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
+		10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
 		10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUKitProgrammaticallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A60FA22B36FE79006FEB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				10ABF6242B45D27200A32FD2 /* ProfilViewController.swift */,
+				10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */,
+				10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */,
 			);
 			path = Profil;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				10B20BDE2B4DB2A900757AD4 /* LoginViewController.swift in Sources */,
 				10E206502B6667B100B27A91 /* UserService.swift in Sources */,
 				10C877FE2B56F81300382EF0 /* ProductAddViewController.swift in Sources */,
+				10A20E662BBB33CD00E2DEF8 /* MessageViewController.swift in Sources */,
 				10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */,
 				10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */,
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
@@ -447,6 +454,7 @@
 				10BDD6392B7A8B6B00D12D51 /* DeleteProductService.swift in Sources */,
 				10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */,
 				10B9A4902B447A4F008807C4 /* TestViewController.swift in Sources */,
+				10A20E682BBB475800E2DEF8 /* MessageTableViewController.swift in Sources */,
 				10E2064C2B6663AF00B27A91 /* FavoriteService.swift in Sources */,
 				10A60FB72B36FF63006FEB99 /* HomeViewController.swift in Sources */,
 				10A82A1E2B3A030E0005E04B /* ProductModel.swift in Sources */,

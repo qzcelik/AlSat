@@ -131,7 +131,6 @@ class HomeViewController: UIViewController {
     
     let contentView : UIView = {
        let view = UIView()
-       
        return view
     }()
     

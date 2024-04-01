@@ -84,7 +84,6 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
       let image = UIImageView()
         image.image = UIImage(systemName: "person.crop.circle.fill")
         image.tintColor = .white
-       
         image.layer.cornerRadius = 100
       return image
     }()
@@ -135,6 +134,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
        
         self.productAddContainer.isHidden = true
         addProductButton.addTarget(self, action: #selector(openAddProductView), for: .touchUpInside)
+        messageButton.addTarget(self, action: #selector(messagesView), for: .touchUpInside)
         constraint()
         generateProductList()
     }
@@ -159,6 +159,11 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
               self.refreshControl.addTarget(self, action:#selector(self.refreshTableView), for: .valueChanged)
          }
       }
+    
+    @objc func messagesView()
+    {
+        navigationController?.pushViewController(MessageViewController(), animated: true)
+    }
 
     
     func generateNewProductAddView()
