@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1008716B2B6ACED100249431 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008716A2B6ACED100249431 /* CheckModel.swift */; };
+		109EE5D22BBC7A0100441CC3 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109EE5D12BBC7A0100441CC3 /* MessageService.swift */; };
+		109EE5D42BBC8D6600441CC3 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109EE5D32BBC8D6600441CC3 /* MessageModel.swift */; };
 		10A20E662BBB33CD00E2DEF8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */; };
 		10A20E682BBB475800E2DEF8 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */; };
 		10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4BD132B42C54800E34358 /* ProductFavViewController.swift */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		1008716A2B6ACED100249431 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
+		109EE5D12BBC7A0100441CC3 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		109EE5D32BBC8D6600441CC3 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				10B989A32B4C6429000B0E10 /* MultipartService.swift */,
 				10E2064B2B6663AF00B27A91 /* FavoriteService.swift */,
 				10E2064F2B6667B100B27A91 /* UserService.swift */,
+				109EE5D12BBC7A0100441CC3 /* MessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				10D6234D2B61A1B2002BEF27 /* UserModel.swift */,
 				10E206512B66A9F300B27A91 /* FavoriteModel.swift */,
 				1008716A2B6ACED100249431 /* CheckModel.swift */,
+				109EE5D32BBC8D6600441CC3 /* MessageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				10E206502B6667B100B27A91 /* UserService.swift in Sources */,
 				10C877FE2B56F81300382EF0 /* ProductAddViewController.swift in Sources */,
 				10A20E662BBB33CD00E2DEF8 /* MessageViewController.swift in Sources */,
+				109EE5D22BBC7A0100441CC3 /* MessageService.swift in Sources */,
 				10ABF6252B45D27200A32FD2 /* ProfilViewController.swift in Sources */,
 				10A60FA32B36FE79006FEB99 /* AppDelegate.swift in Sources */,
 				10CB01482B3875F800097CD4 /* ConstantVariable.swift in Sources */,
@@ -450,6 +457,7 @@
 				10A82A212B3A06F50005E04B /* ProductService.swift in Sources */,
 				10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
+				109EE5D42BBC8D6600441CC3 /* MessageModel.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
 				10BDD6392B7A8B6B00D12D51 /* DeleteProductService.swift in Sources */,
 				10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */,

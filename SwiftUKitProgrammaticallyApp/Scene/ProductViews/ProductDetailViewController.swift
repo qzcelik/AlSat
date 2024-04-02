@@ -60,9 +60,9 @@ class ProductDetailViewController: UIViewController {
     
     
     
-    let productBuyButton : UIButton = {
+    let productMessageButton : UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "basket"), for: [])
+        button.setImage(UIImage(systemName: "message"), for: [])
         button.tintColor = .systemOrange
         button.layer.cornerRadius = ConstantVariable.cornerRadius
         return button
@@ -112,7 +112,7 @@ class ProductDetailViewController: UIViewController {
         maninView.addSubview(productDescriptionLabel)
         maninView.addSubview(productPriceLabel)
         maninView.addSubview(productLikeButton)
-        maninView.addSubview(productBuyButton)
+        maninView.addSubview(productMessageButton)
         maninView.addSubview(similarTitle)
         maninView.addSubview(similarProductContainer)
         
@@ -133,7 +133,7 @@ class ProductDetailViewController: UIViewController {
             self.prepareSimilarProductContainer(data:  (result as? [ProductModel])!)
         }
         
-        productBuyButton.addTarget(self, action: #selector(buyProduct), for: .touchUpInside)
+        productMessageButton.addTarget(self, action: #selector(messageProduct), for: .touchUpInside)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(backLeft(gesture:)))
         swipeRight.direction = .right
@@ -144,7 +144,7 @@ class ProductDetailViewController: UIViewController {
         let dataId = data.id
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
-            "productId" : dataId ?? ""
+            "productId" : dataId ?? "",
         ]
             
         FavoriteService().request(url: "favoriteCheck.php", parameters: parameters, method: .post){(result) -> () in
@@ -161,12 +161,11 @@ class ProductDetailViewController: UIViewController {
             }
     }
     
-   @objc func buyProduct()
+   @objc func messageProduct()
     {
-        
-        let alert = UIAlertController(title: "Uyarı", message: "Sepete Ekleme", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        var meesageViewControoler = MessageViewController()
+        meesageViewControoler.productData = data
+        present(meesageViewControoler, animated: true)
     }
     
     func prepareSimilarProductContainer(data: [ProductModel])
@@ -245,7 +244,7 @@ class ProductDetailViewController: UIViewController {
             make.leftMargin.equalTo(50)
         }
         
-        productBuyButton.snp.makeConstraints { make in
+        productMessageButton.snp.makeConstraints { make in
             make.width.equalTo(100)
             make.height.equalTo(50)
             make.topMargin.equalTo(productLikeButton).offset(25)
@@ -256,7 +255,7 @@ class ProductDetailViewController: UIViewController {
             make.width.equalToSuperview()
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
-            make.topMargin.equalTo(productBuyButton).offset(60)
+            make.topMargin.equalTo(productMessageButton).offset(60)
         }
         
         similarProductContainer.snp.makeConstraints { make in

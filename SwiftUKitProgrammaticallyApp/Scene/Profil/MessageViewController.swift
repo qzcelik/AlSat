@@ -11,10 +11,10 @@ class MessageViewController: UIViewController {
 
     let messageListContainer : UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray
         return view
     }()
     
+    var productData : ProductModel = ProductModel()
     var messageQueue : [String] = []
     
     let messageInput : UITextField = {
@@ -42,6 +42,7 @@ class MessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
+        getMessageData()
         prepareUI()
         constraint()
     }
@@ -53,12 +54,45 @@ class MessageViewController: UIViewController {
         messageBottomPanel.addSubview(messageInput)
         view.addSubview(messageListContainer)
         sendMessageButton.addTarget(self, action: #selector(addMessageToQuee), for: .touchUpInside)
+        dismissKeyboard()
     }
     
     @objc func addMessageToQuee()
     {
         messageQueue.append(messageInput.text ?? "")
+        let parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!,
+            "productId" :   productData.id ?? "",
+            "message" : messageInput.text ?? ""
+        ]
+        MessageService().request(url: "messages.php", parameters: parameters, method: .post){(result) -> () in}
         refreshMessageView()
+    }
+    
+    
+    func dismissKeyboard()
+    {
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+    }
+    
+    func getMessageData()
+    {
+        let parameters : [String:Any] = [
+            "userId" : LoginViewController.user.id!,
+            "productId" :   productData.id ?? ""
+        ]
+        MessageService().request(url: "messageGetData.php", parameters: parameters, method: .post){(result) -> () in
+           
+            for item in result
+            {
+                var resultMessageData =  item as? MessageModel
+                self.messageQueue.append(resultMessageData?.message ?? "")
+            }
+            self.refreshMessageView()
+            
+        }
     }
     
     func refreshMessageView()

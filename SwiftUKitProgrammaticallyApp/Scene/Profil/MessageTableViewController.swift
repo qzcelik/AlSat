@@ -22,15 +22,15 @@ class MessageTableViewController: UIViewController {
     
     let messageTableView : UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .systemOrange
         tableView.allowsSelection = true
+        tableView.backgroundColor = .systemBackground
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        messageTableView.backgroundColor  = .white
         messageTableView.dataSource = self
         messageTableView.delegate = self
         view.addSubview(messageTableView)
