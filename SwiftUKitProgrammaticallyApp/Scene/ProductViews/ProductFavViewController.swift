@@ -55,7 +55,6 @@ class ProductFavViewController: UIViewController {
                 self.productTableView.view.frame = self.tableViewContainer.bounds
                 self.addChild(self.productTableView)
                 self.productTableView.didMove(toParent: self)
-                
                 self.productTableView.tableViewVertical.refreshControl = self.refreshControl
                 self.refreshControl.addTarget(self, action:#selector(self.refreshTableView), for: .valueChanged)
         }

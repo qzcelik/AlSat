@@ -162,7 +162,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     
     @objc func messagesView()
     {
-        navigationController?.pushViewController(MessageViewController(), animated: true)
+        navigationController?.pushViewController(MessageListViewController(), animated: true)
     }
 
     

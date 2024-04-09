@@ -9,13 +9,14 @@ import UIKit
 
 class MessageViewController: UIViewController {
 
+    
     let messageListContainer : UIView = {
         let view = UIView()
         return view
     }()
     
     var productData : ProductModel = ProductModel()
-    var messageQueue : [String] = []
+    var messageQueue : [MessageShowModel] = []
     
     let messageInput : UITextField = {
         let textBox = UITextField()
@@ -59,16 +60,20 @@ class MessageViewController: UIViewController {
     
     @objc func addMessageToQuee()
     {
-        messageQueue.append(messageInput.text ?? "")
+        var messageShowModel = MessageShowModel()
+        messageShowModel.message = messageInput.text ?? ""
+        messageShowModel.labelTextAlign = "right"
+        messageQueue.append(messageShowModel)
+        
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
             "productId" :   productData.id ?? "",
+            "ownerId" : productData.userId ?? "",
             "message" : messageInput.text ?? ""
         ]
         MessageService().request(url: "messages.php", parameters: parameters, method: .post){(result) -> () in}
         refreshMessageView()
     }
-    
     
     func dismissKeyboard()
     {
@@ -81,20 +86,30 @@ class MessageViewController: UIViewController {
     {
         let parameters : [String:Any] = [
             "userId" : LoginViewController.user.id!,
+            "ownerId" : productData.userId ?? "",
             "productId" :   productData.id ?? ""
         ]
         MessageService().request(url: "messageGetData.php", parameters: parameters, method: .post){(result) -> () in
            
             for item in result
             {
-                var resultMessageData =  item as? MessageModel
-                self.messageQueue.append(resultMessageData?.message ?? "")
+                  let resultMessageData =  item as? MessageModel
+                  var messageShowModel = MessageShowModel()
+                  messageShowModel.message = resultMessageData?.message ?? ""
+                  if(resultMessageData?.userId! == LoginViewController.user.id!)
+                  {
+                      messageShowModel.labelTextAlign = "right"
+                  }
+                  else
+                  {
+                      messageShowModel.labelTextAlign = "left"
+                  }
+                  self.messageQueue.append(messageShowModel)
             }
             self.refreshMessageView()
-            
         }
     }
-    
+
     func refreshMessageView()
     {
         let messageView = MessageTableViewController(messages: messageQueue)

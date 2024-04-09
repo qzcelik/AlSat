@@ -159,6 +159,17 @@ class ProductDetailViewController: UIViewController {
                     self.productLikeButton.tintColor = .systemOrange
                 }
             }
+        
+        if(data.userId == LoginViewController.user.id)
+        {
+            productMessageButton.isHidden = true
+            productLikeButton.isHidden = true
+        }
+        else
+        {
+            productLikeButton.isHidden = false
+            productMessageButton.isHidden = false
+        }
     }
     
    @objc func messageProduct()

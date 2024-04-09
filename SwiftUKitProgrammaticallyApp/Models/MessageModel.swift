@@ -10,5 +10,7 @@ import Foundation
 struct MessageModel : Codable
 {
     var productId : String?
+    var userId : String?
+    var ownerId : String?
     var message : String?
 }

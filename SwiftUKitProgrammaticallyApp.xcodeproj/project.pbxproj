@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1008716B2B6ACED100249431 /* CheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1008716A2B6ACED100249431 /* CheckModel.swift */; };
+		109E22722BBDDFD500D17CD3 /* MessageShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109E22712BBDDFD500D17CD3 /* MessageShowModel.swift */; };
 		109EE5D22BBC7A0100441CC3 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109EE5D12BBC7A0100441CC3 /* MessageService.swift */; };
 		109EE5D42BBC8D6600441CC3 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109EE5D32BBC8D6600441CC3 /* MessageModel.swift */; };
+		109FF63D2BC58AE600EE8B75 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FF63C2BC58AE600EE8B75 /* MessageListViewController.swift */; };
+		109FF63F2BC58EF800EE8B75 /* MessageListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109FF63E2BC58EF800EE8B75 /* MessageListService.swift */; };
 		10A20E662BBB33CD00E2DEF8 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */; };
 		10A20E682BBB475800E2DEF8 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */; };
 		10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A4BD132B42C54800E34358 /* ProductFavViewController.swift */; };
@@ -60,8 +63,11 @@
 
 /* Begin PBXFileReference section */
 		1008716A2B6ACED100249431 /* CheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckModel.swift; sourceTree = "<group>"; };
+		109E22712BBDDFD500D17CD3 /* MessageShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageShowModel.swift; sourceTree = "<group>"; };
 		109EE5D12BBC7A0100441CC3 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		109EE5D32BBC8D6600441CC3 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		109FF63C2BC58AE600EE8B75 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
+		109FF63E2BC58EF800EE8B75 /* MessageListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListService.swift; sourceTree = "<group>"; };
 		10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 				10E2064B2B6663AF00B27A91 /* FavoriteService.swift */,
 				10E2064F2B6667B100B27A91 /* UserService.swift */,
 				109EE5D12BBC7A0100441CC3 /* MessageService.swift */,
+				109FF63E2BC58EF800EE8B75 /* MessageListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 				10E206512B66A9F300B27A91 /* FavoriteModel.swift */,
 				1008716A2B6ACED100249431 /* CheckModel.swift */,
 				109EE5D32BBC8D6600441CC3 /* MessageModel.swift */,
+				109E22712BBDDFD500D17CD3 /* MessageShowModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 				10ABF6242B45D27200A32FD2 /* ProfilViewController.swift */,
 				10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */,
 				10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */,
+				109FF63C2BC58AE600EE8B75 /* MessageListViewController.swift */,
 			);
 			path = Profil;
 			sourceTree = "<group>";
@@ -456,8 +465,10 @@
 				10A4BD142B42C54800E34358 /* ProductFavViewController.swift in Sources */,
 				10A82A212B3A06F50005E04B /* ProductService.swift in Sources */,
 				10B989A42B4C6429000B0E10 /* MultipartService.swift in Sources */,
+				109E22722BBDDFD500D17CD3 /* MessageShowModel.swift in Sources */,
 				10CB01442B3849DD00097CD4 /* IntroViewController.swift in Sources */,
 				109EE5D42BBC8D6600441CC3 /* MessageModel.swift in Sources */,
+				109FF63D2BC58AE600EE8B75 /* MessageListViewController.swift in Sources */,
 				10A60FA52B36FE79006FEB99 /* SceneDelegate.swift in Sources */,
 				10BDD6392B7A8B6B00D12D51 /* DeleteProductService.swift in Sources */,
 				10A7BA472B50760F00E80863 /* SignUpViewController.swift in Sources */,
@@ -469,6 +480,7 @@
 				10AA4B6A2B3833D400A72F7D /* TabBarHomeViewController.swift in Sources */,
 				10E206522B66A9F300B27A91 /* FavoriteModel.swift in Sources */,
 				10AA4B6C2B38355600A72F7D /* ProductDetailViewController.swift in Sources */,
+				109FF63F2BC58EF800EE8B75 /* MessageListService.swift in Sources */,
 				10E2064E2B66646E00B27A91 /* ServiceRequestProtocol.swift in Sources */,
 				10D7DC3F2B7BDFE2003EDA07 /* SearchViewController.swift in Sources */,
 			);

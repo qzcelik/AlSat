@@ -9,9 +9,9 @@ import UIKit
 
 class MessageTableViewController: UIViewController {
 
-    var messagesList : [String]
+    var messagesList : [MessageShowModel]
     
-    init(messages: [String]) {
+    init(messages: [MessageShowModel]) {
         messagesList = messages
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,9 +22,8 @@ class MessageTableViewController: UIViewController {
     
     let messageTableView : UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemOrange
+        tableView.backgroundColor = .orange
         tableView.allowsSelection = true
-        tableView.backgroundColor = .systemBackground
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
@@ -54,7 +53,16 @@ extension MessageTableViewController : UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text  = messagesList[indexPath.row]
+        cell.textLabel?.text  = messagesList[indexPath.row].message
+        cell.backgroundColor = .orange
+        if(messagesList[indexPath.row].labelTextAlign! == "right")
+        {
+            cell.textLabel?.textAlignment = .right
+        }
+        else
+        {
+            cell.textLabel?.textAlignment = .left
+        }
         return cell
     }
     

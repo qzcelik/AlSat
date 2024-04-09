@@ -86,11 +86,20 @@ extension ProductVerticalViewController: UICollectionViewDelegateFlowLayout, UIC
             
                 if(checkResult.response == "ok")
                     {
-                    cell.likeButton.tintColor = .red
+                        cell.likeButton.tintColor = .red
                     }
                     else
                     {
                         cell.likeButton.tintColor = .white
+                    }
+            
+                    if(cell.data?.userId == LoginViewController.user.id)
+                    {
+                        cell.likeButton.isHidden = true
+                    }
+                    else
+                    {
+                        cell.likeButton.isHidden = false
                     }
                 }
         
@@ -175,7 +184,6 @@ class CustomCell: UICollectionViewCell {
         contentView.addSubview(likeButton)
         contentView.addSubview(shorDetail)
         contentView.addSubview(price)
-      
         constrait()
         likeButton.addTarget(self, action: #selector(likeButtonClick), for: .touchUpInside)
     }

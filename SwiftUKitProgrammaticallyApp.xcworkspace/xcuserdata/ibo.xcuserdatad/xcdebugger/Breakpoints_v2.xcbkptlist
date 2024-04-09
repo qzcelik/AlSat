@@ -20,5 +20,68 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6307CF2D-0512-44BC-AB6C-AD76B069A4C7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUKitProgrammaticallyApp/Scene/Profil/MessageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "getMessageData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6307CF2D-0512-44BC-AB6C-AD76B069A4C7 - 2721ed210ade84e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Any&gt;) -&gt; () in SwiftUKitProgrammaticallyApp.MessageViewController.getMessageData() -&gt; ()"
+                  moduleName = "SwiftUKitProgrammaticallyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Scene/Profil/MessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "6307CF2D-0512-44BC-AB6C-AD76B069A4C7 - 2721ed210ade84e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Any&gt;) -&gt; () in SwiftUKitProgrammaticallyApp.MessageViewController.getMessageData() -&gt; ()"
+                  moduleName = "SwiftUKitProgrammaticallyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Scene/Profil/MessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "6307CF2D-0512-44BC-AB6C-AD76B069A4C7 - 2721ed210ade84e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Any&gt;) -&gt; () in SwiftUKitProgrammaticallyApp.MessageViewController.getMessageData() -&gt; ()"
+                  moduleName = "SwiftUKitProgrammaticallyApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/SwiftUKitProgrammaticallyApp/Scene/Profil/MessageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
