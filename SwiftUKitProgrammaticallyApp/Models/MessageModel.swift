@@ -13,4 +13,5 @@ struct MessageModel : Codable
     var userId : String?
     var ownerId : String?
     var message : String?
+    var textAlign : String?
 }

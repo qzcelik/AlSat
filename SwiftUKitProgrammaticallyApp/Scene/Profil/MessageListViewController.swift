@@ -75,7 +75,10 @@ extension MessageListViewController : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(messageList[indexPath.row].userId)
+        print(messageList[indexPath.row].userId!)
+        let messageView = MessageViewController()
+        messageView.messageData = messageList[indexPath.row]
+        present(messageView, animated: true)
     }
     
     

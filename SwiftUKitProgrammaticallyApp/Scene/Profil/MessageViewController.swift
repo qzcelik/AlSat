@@ -16,6 +16,7 @@ class MessageViewController: UIViewController {
     }()
     
     var productData : ProductModel = ProductModel()
+    var messageData : MessageModel = MessageModel()
     var messageQueue : [MessageShowModel] = []
     
     let messageInput : UITextField = {
@@ -65,12 +66,36 @@ class MessageViewController: UIViewController {
         messageShowModel.labelTextAlign = "right"
         messageQueue.append(messageShowModel)
         
-        let parameters : [String:Any] = [
-            "userId" : LoginViewController.user.id!,
-            "productId" :   productData.id ?? "",
-            "ownerId" : productData.userId ?? "",
-            "message" : messageInput.text ?? ""
+        
+        var parameters : [String:Any] = [
+            "userId" : "",
+            "productId" : "",
+            "ownerId" : "",
+            "message" : "",
+            "textAlign" : ""
         ]
+        
+        if(productData.id != nil)
+        {
+            parameters = [
+               "userId" : LoginViewController.user.id!,
+               "productId" :   productData.id ?? "",
+               "ownerId" : productData.userId ?? "",
+               "message" : messageInput.text ?? "",
+               "textAlign" : "left"
+           ]
+        }
+        else
+        {
+            parameters = [
+               "userId" :  messageData.userId ?? "",
+               "productId" : messageData.productId ?? "",
+               "ownerId" : LoginViewController.user.id!,
+               "message" : messageInput.text ?? "",
+               "textAlign" : "right"
+           ]
+        }
+        
         MessageService().request(url: "messages.php", parameters: parameters, method: .post){(result) -> () in}
         refreshMessageView()
     }
@@ -84,11 +109,30 @@ class MessageViewController: UIViewController {
     
     func getMessageData()
     {
-        let parameters : [String:Any] = [
-            "userId" : LoginViewController.user.id!,
-            "ownerId" : productData.userId ?? "",
-            "productId" :   productData.id ?? ""
+        var parameters : [String:Any] = [
+            "userId" : "0",
+            "ownerId" :  "0",
+            "productId" : "0"
         ]
+        
+        if(productData.id != nil)
+        {
+            parameters = [
+                "userId" : LoginViewController.user.id!,
+                "ownerId" : productData.userId ?? "",
+                "productId" :   productData.id ?? ""
+            ]
+        }
+        else
+        {
+            parameters = [
+                "userId" : messageData.userId ?? "",
+                "ownerId" : LoginViewController.user.id!,
+                "productId" :   messageData.productId ?? ""
+            ]
+        }
+            
+        
         MessageService().request(url: "messageGetData.php", parameters: parameters, method: .post){(result) -> () in
            
             for item in result
@@ -96,16 +140,19 @@ class MessageViewController: UIViewController {
                   let resultMessageData =  item as? MessageModel
                   var messageShowModel = MessageShowModel()
                   messageShowModel.message = resultMessageData?.message ?? ""
-                  if(resultMessageData?.userId! == LoginViewController.user.id!)
-                  {
-                      messageShowModel.labelTextAlign = "right"
-                  }
-                  else
-                  {
-                      messageShowModel.labelTextAlign = "left"
-                  }
-                  self.messageQueue.append(messageShowModel)
+                
+               
+                  if(resultMessageData?.textAlign! == "right")
+                      {
+                          messageShowModel.labelTextAlign = "right"
+                      }
+                      else
+                      {
+                          messageShowModel.labelTextAlign = "left"
+                      }
+                self.messageQueue.append(messageShowModel)
             }
+            self.messageQueue.reverse()
             self.refreshMessageView()
         }
     }
