@@ -140,19 +140,33 @@ class MessageViewController: UIViewController {
                   let resultMessageData =  item as? MessageModel
                   var messageShowModel = MessageShowModel()
                   messageShowModel.message = resultMessageData?.message ?? ""
+              
+                if(self.productData.id != nil)
+                  {
+                      if(resultMessageData?.textAlign! == "right")
+                          {
+                              messageShowModel.labelTextAlign = "left"
+                          }
+                          else
+                          {
+                              messageShowModel.labelTextAlign = "right"
+                          }
+                  }
+                else
+                {
+                    if(resultMessageData?.textAlign! == "right")
+                        {
+                            messageShowModel.labelTextAlign = "right"
+                        }
+                        else
+                        {
+                            messageShowModel.labelTextAlign = "left"
+                        }
+                }
                 
-               
-                  if(resultMessageData?.textAlign! == "right")
-                      {
-                          messageShowModel.labelTextAlign = "right"
-                      }
-                      else
-                      {
-                          messageShowModel.labelTextAlign = "left"
-                      }
+                
                 self.messageQueue.append(messageShowModel)
             }
-            self.messageQueue.reverse()
             self.refreshMessageView()
         }
     }

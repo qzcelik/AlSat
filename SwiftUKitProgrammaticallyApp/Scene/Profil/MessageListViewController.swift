@@ -35,6 +35,8 @@ class MessageListViewController: UIViewController {
         }
     }
     
+    var productList : [ProductModel] = []
+    
     func generateUI()
     {
         messageTableView.delegate = self
@@ -70,12 +72,34 @@ extension MessageListViewController : UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text  = self.messageList[indexPath.row].userId! + " id'li kullanıcıdan mesaj var"
+        
+        productDataFetchFromServer(productId: self.messageList[indexPath.row].productId!) {productList in
+                
+            if  !productList.isEmpty  {
+                self.productList = productList
+                cell.textLabel?.text  = self.productList[indexPath.row].productTitle! + " ürünü için mesajınız var"
+            }
+        }
         return cell
     }
     
+    func productDataFetchFromServer(productId : String, completion: @escaping([ProductModel]) -> Void)
+    {
+        
+        let parameters : [String:Any] = [
+            "productId" : productId
+        ]
+        
+        ProductService().request(url: "productSelectedData.php", parameters: parameters, method: .post){(result) -> () in
+           
+        if let productList = result as? [ProductModel]
+            {
+                completion(productList)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(messageList[indexPath.row].userId!)
         let messageView = MessageViewController()
         messageView.messageData = messageList[indexPath.row]
         present(messageView, animated: true)
