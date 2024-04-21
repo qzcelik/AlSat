@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = ConstantVariable.cornerRadius
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -114,7 +115,6 @@ extension LoginViewController
     {
         let username : String = userNameTextBox.text!
         let password : String = userPassTextBox.text!
-        
         if(username != "" && password != "")
         {
             let parameters: [String: Any] = [

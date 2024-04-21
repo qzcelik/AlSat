@@ -77,7 +77,7 @@ extension MessageListViewController : UITableViewDelegate, UITableViewDataSource
                 
             if  !productList.isEmpty  {
                 self.productList = productList
-                cell.textLabel?.text  = self.productList[indexPath.row].productTitle! + " ürünü için mesajınız var"
+                cell.textLabel?.text  = self.productList[0].productTitle! + " ürünü için mesajınız var"
             }
         }
         return cell
