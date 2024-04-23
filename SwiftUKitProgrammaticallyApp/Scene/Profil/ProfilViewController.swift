@@ -116,7 +116,7 @@ class ProfilViewController: UIViewController, UIImagePickerControllerDelegate,UI
     {
         productAddViewController.delegate = self
         title = "Profil"
-        view.backgroundColor = .white
+        view.backgroundColor = ConstantVariable.backGroundColor
         
         messageView.addSubview(messageLabel)
         messageView.addSubview(messageButton)

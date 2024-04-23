@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
     
     let topView : UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ConstantVariable.backGroundColor
         return view
     }()  
     
@@ -136,13 +136,14 @@ class HomeViewController: UIViewController {
     
     let newsContainer : UIView = {
         let view = UIView()
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
         return view
     }()
      
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = ConstantVariable.backGroundColor
         title = "Ana Sayfa"
         topViewInfo.addSubview(profilButton)
         topViewInfo.addSubview(messageLabel)

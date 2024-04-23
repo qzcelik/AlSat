@@ -19,6 +19,7 @@ class NewsView : UIViewController{
     let viewProduct : UIView = {
         let view = UIView()
         view.backgroundColor = .blue
+        view.layer.cornerRadius = ConstantVariable.cornerRadius
         return view
     }()
     

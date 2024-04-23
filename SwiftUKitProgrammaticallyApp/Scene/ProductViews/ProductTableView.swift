@@ -18,7 +18,7 @@ class ProductTableView : UIViewController {
     let tableViewVertical : UITableView =
     {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .white
         tableView.allowsSelection = true
         tableView.register(TableViewCustomCell.self, forCellReuseIdentifier: "Cell")
         return tableView
