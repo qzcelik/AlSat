@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftUKitProgrammaticallyApp.xcodeproj">
+      location = "group:/Users/ibo/Desktop/SwiftDemos/SwiftUKitProgrammaticallyApp/AlSat.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

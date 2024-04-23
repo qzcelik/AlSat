@@ -71,7 +71,7 @@
 		10A20E652BBB33CD00E2DEF8 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		10A20E672BBB475800E2DEF8 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		10A4BD132B42C54800E34358 /* ProductFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFavViewController.swift; sourceTree = "<group>"; };
-		10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUKitProgrammaticallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10A60F9F2B36FE79006FEB99 /* AlSat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlSat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A60FA22B36FE79006FEB99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10A60FA42B36FE79006FEB99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		10A60FAB2B36FE7A006FEB99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		10A60FA02B36FE79006FEB99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */,
+				10A60F9F2B36FE79006FEB99 /* AlSat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,9 +331,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		10A60F9E2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */ = {
+		10A60F9E2B36FE79006FEB99 /* AlSat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "SwiftUKitProgrammaticallyApp" */;
+			buildConfigurationList = 10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "AlSat" */;
 			buildPhases = (
 				643E24811A077FFF472CCF9C /* [CP] Check Pods Manifest.lock */,
 				10A60F9B2B36FE79006FEB99 /* Sources */,
@@ -346,11 +346,11 @@
 			);
 			dependencies = (
 			);
-			name = SwiftUKitProgrammaticallyApp;
+			name = AlSat;
 			packageProductDependencies = (
 			);
 			productName = FormTest1;
-			productReference = 10A60F9F2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp.app */;
+			productReference = 10A60F9F2B36FE79006FEB99 /* AlSat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -368,7 +368,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 10A60F9A2B36FE79006FEB99 /* Build configuration list for PBXProject "SwiftUKitProgrammaticallyApp" */;
+			buildConfigurationList = 10A60F9A2B36FE79006FEB99 /* Build configuration list for PBXProject "AlSat" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -383,7 +383,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				10A60F9E2B36FE79006FEB99 /* SwiftUKitProgrammaticallyApp */,
+				10A60F9E2B36FE79006FEB99 /* AlSat */,
 			);
 		};
 /* End PBXProject section */
@@ -686,7 +686,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		10A60F9A2B36FE79006FEB99 /* Build configuration list for PBXProject "SwiftUKitProgrammaticallyApp" */ = {
+		10A60F9A2B36FE79006FEB99 /* Build configuration list for PBXProject "AlSat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				10A60FB12B36FE7A006FEB99 /* Debug */,
@@ -695,7 +695,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "SwiftUKitProgrammaticallyApp" */ = {
+		10A60FB32B36FE7A006FEB99 /* Build configuration list for PBXNativeTarget "AlSat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				10A60FB42B36FE7A006FEB99 /* Debug */,

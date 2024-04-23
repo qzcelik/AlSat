@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "10A60F9E2B36FE79006FEB99"
-               BuildableName = "SwiftUKitProgrammaticallyApp.app"
-               BlueprintName = "SwiftUKitProgrammaticallyApp"
-               ReferencedContainer = "container:SwiftUKitProgrammaticallyApp.xcodeproj">
+               BuildableName = "AlSat.app"
+               BlueprintName = "AlSat"
+               ReferencedContainer = "container:AlSat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "10A60F9E2B36FE79006FEB99"
-            BuildableName = "SwiftUKitProgrammaticallyApp.app"
-            BlueprintName = "SwiftUKitProgrammaticallyApp"
-            ReferencedContainer = "container:SwiftUKitProgrammaticallyApp.xcodeproj">
+            BuildableName = "AlSat.app"
+            BlueprintName = "AlSat"
+            ReferencedContainer = "container:AlSat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "10A60F9E2B36FE79006FEB99"
-            BuildableName = "SwiftUKitProgrammaticallyApp.app"
-            BlueprintName = "SwiftUKitProgrammaticallyApp"
-            ReferencedContainer = "container:SwiftUKitProgrammaticallyApp.xcodeproj">
+            BuildableName = "AlSat.app"
+            BlueprintName = "AlSat"
+            ReferencedContainer = "container:AlSat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
